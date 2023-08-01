@@ -2,18 +2,23 @@ import { SfeirThemeInitializer } from '../web_modules/sfeir-school-theme/sfeir-s
 
 // One method per module
 function schoolSlides() {
-  return ['00-school/00-TITLE.md', '00-school/speaker-jef.md'];
+  return ['00-school/00-TITLE.md', '00-school/01-Overview.md'];
 }
 
-function introSlides() {
-  return ['intro/00-TITLE.md'];
+function speakers() {
+  return ['00-school/speaker-npx.md', '00-school/speaker-smr.md']; 
+}
+
+function introReactorSlides() {
+  return ['01-intro-reactor/01-presentation.md'];
 }
 
 function formation() {
   return [
     //
     ...schoolSlides(), //
-    ...introSlides(), //
+    ...speakers(), //
+    ...introReactorSlides(), //
   ].map((slidePath) => {
     return { path: slidePath };
   });
