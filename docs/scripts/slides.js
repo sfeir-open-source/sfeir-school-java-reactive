@@ -6,11 +6,11 @@ function schoolSlides() {
 }
 
 function speakers() {
-  return ['00-school/speaker-npx.md', '00-school/speaker-smr.md']; 
+  return ['00-school/02-speaker-npx.md', '00-school/03-speaker-smr.md'];
 }
 
 function introReactorSlides() {
-  return ['01-intro-reactor/01-presentation.md'];
+  return ['01-intro-reactor/00-presentation.md', '01-intro-reactor/01-plan.md', '01-intro-reactor/02-prerequis.md'];
 }
 
 function formation() {
