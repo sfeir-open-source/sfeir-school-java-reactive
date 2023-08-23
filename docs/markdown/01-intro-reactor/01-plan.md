@@ -12,7 +12,7 @@
   - Gestions des erreurs
 - Manipulation de flux
   - Les opérations des transformations
-    Programmation asynchrone
+  - Programmation asynchrone
 - Conclusion et perspectives
 
 Notes: pour faire du point par point  <!-- .element: class="list-fragment" --> 
