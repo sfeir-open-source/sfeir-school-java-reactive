@@ -1,11 +1,14 @@
 <!-- .slide: -->
 
-# Contenu
+# Le menu du jour
 
-* Le pourquoi de Reactor et le paradigme reactive
-* Manipuler et combiner des séquences
-* Optimiser et paralléliser des IOs
-* Gestion d'erreurs et backpressure
+- Introduction à la programmation réactive
+- Présentation de la bibliothèque Reactor
+- Initialisation de Flux et Mono
+- Filtrer, combiner, transformer !
+- Gestions des erreurs
+- Backpressure & buffer
+- Conclusion et perspectives
 
 <!-- .element: class="list-fragment" -->
 

@@ -16,7 +16,6 @@ function speakers() {
 function introReactorSlides() {
   return [
     '01-intro-reactor/00-presentation.md',
-    '01-intro-reactor/01-plan.md',
     '01-intro-reactor/02-prerequis.md',
     '01-intro-reactor/03-basics.md',
     '01-intro-reactor/04-histoire.md',
