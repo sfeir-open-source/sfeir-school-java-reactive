@@ -17,9 +17,31 @@ function introReactorSlides() {
   return [
     '01-intro-reactor/00-presentation.md',
     '01-intro-reactor/02-prerequis.md',
-    '01-intro-reactor/03-basics.md',
     '01-intro-reactor/04-histoire.md',
     '01-intro-reactor/05-explications.md'];
+}
+
+function basicsSlides() {
+  return [
+    '02-basics/00-initialisation.md',
+    '02-basics/01-transformer.md',
+    '02-basics/02-filtrer.md',
+    '02-basics/03-combiner.md'
+  ];
+}
+
+function advancedSlides() {
+  return [
+    '03-advanced/00-gestion-erreurs.md',
+    '03-advanced/01-back-pressure.md'
+  ];
+}
+
+function conclusionSlides() {
+  return [
+    '04-conclusion/00-pitfalls.md',
+    '04-conclusion/01-conclusion.md'
+  ];
 }
 
 function formation() {
@@ -28,6 +50,9 @@ function formation() {
     ...schoolSlides(), //
     ...speakers(), //
     ...introReactorSlides(), //
+    ...basicsSlides(), //
+    ...advancedSlides(), //
+    ...conclusionSlides() //
   ].map((slidePath) => {
     return {path: slidePath};
   });
