@@ -1,6 +1,6 @@
 <!-- .slide: -->
 
-# C'est quoi le "reactive" ?
+# C'est quoi la programmation réactive ?
 
 
 * Changement de paradigme 
