@@ -2,11 +2,15 @@
 
 # Présentation
 
-![speaker](./assets/images/smr.jpg)
+![speaker](./assets/images/sylvain.jpeg)
 ![company](./assets/images/logo-sfeir-blanc.png)
 
 ## Sylvain Magnier
 
-### Backend developper
+### Développeur java
 
 <!-- .element: class="icon-rule icon-first" -->
+
+### magnier.s@sfeir.com
+
+<!-- .element: class="icon-twitter icon-second" -->
