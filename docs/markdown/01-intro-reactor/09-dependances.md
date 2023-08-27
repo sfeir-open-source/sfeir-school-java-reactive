@@ -1,0 +1,7 @@
+<!-- .slide: -->
+
+# Dépendances:
+
+*
+
+Notes:
