@@ -18,7 +18,12 @@ function introReactorSlides() {
     '01-intro-reactor/00-presentation.md',
     '01-intro-reactor/02-prerequis.md',
     '01-intro-reactor/04-histoire.md',
-    '01-intro-reactor/05-explications.md'];
+    '01-intro-reactor/05-explications.md',
+    '01-intro-reactor/06-projectreactor.md',
+    '01-intro-reactor/07-utilisation.md',
+    '01-intro-reactor/08-integrations.md',
+    '01-intro-reactor/09-dependances.md',
+    '01-intro-reactor/10-specificites.md'];
 }
 
 function basicsSlides() {

@@ -1,0 +1,7 @@
+<!-- .slide: -->
+
+# Les spécificités:
+
+*
+
+Notes:
