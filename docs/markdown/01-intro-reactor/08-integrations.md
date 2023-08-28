@@ -6,10 +6,9 @@
   * R2DBC : pour utiliser reactor avec des BDD relationnelles
   * MongoDB Reactive streams
   * Cassandra Reactive
-* HTTP
-  * Reactor Netty : Un ensemble de connecteurs réseau asynchrones et non bloquants basés sur Netty et Project Reactor.
-* Cache : 
-  * Intégré à Reactor avec Mono.cache() et Flux.cache()
-  * Ou alors avec la bibliothèque Caffeine pour des opérations plus complexes
+* Spring WebFlux : Une intégration naturelle pour créer des APIs réactives.
+* Reactive Streams : Reactor est conforme à la spécification Reactive Streams.
+* WebSocket : Vous pouvez gérer des connexions WebSocket de manière réactive.
+* Kafka, RabbitMQ : Les clients réactifs pour ces services de messagerie sont disponibles.
 
 Notes:
