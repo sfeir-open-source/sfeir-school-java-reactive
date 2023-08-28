@@ -16,22 +16,26 @@ function speakers() {
 function introReactorSlides() {
   return [
     '01-intro-reactor/00-presentation.md',
-    '01-intro-reactor/02-prerequis.md',
-    '01-intro-reactor/04-histoire.md',
-    '01-intro-reactor/05-explications.md',
-    '01-intro-reactor/06-projectreactor.md',
-    '01-intro-reactor/07-utilisation.md',
-    '01-intro-reactor/08-integrations.md',
-    '01-intro-reactor/09-dependances.md',
-    '01-intro-reactor/10-specificites.md'];
+    '01-intro-reactor/01-prerequis.md',
+    '01-intro-reactor/02-histoire.md',
+    '01-intro-reactor/03-explications.md',
+    '01-intro-reactor/04-projectreactor.md',
+    '01-intro-reactor/05-utilisation.md',
+    '01-intro-reactor/06-integrations.md',
+    '01-intro-reactor/07-dependances.md',
+    '01-intro-reactor/08-specificites.md'];
 }
 
 function basicsSlides() {
   return [
-    '02-basics/00-initialisation.md',
-    '02-basics/01-transformer.md',
-    '02-basics/02-filtrer.md',
-    '02-basics/03-combiner.md'
+    '02-basics/00-flux.md',
+    '02-basics/01-mono.md',
+    '02-basics/02-creationFlux.md',
+    '02-basics/02b-creationMono.md',
+    '02-basics/03-souscription.md',
+    '02-basics/04-transformer.md',
+    '02-basics/05-filtrer.md',
+    '02-basics/06-combiner.md'
   ];
 }
 
