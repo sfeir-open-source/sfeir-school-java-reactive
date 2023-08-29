@@ -33,6 +33,7 @@ function basicsSlides() {
     '02-basics/02-creationFlux.md',
     '02-basics/02b-creationMono.md',
     '02-basics/03-souscription.md',
+    '02-basics/03b-alternatives.md',
     '02-basics/04-transformer.md',
     '02-basics/05-filtrer.md',
     '02-basics/06-combiner.md'
