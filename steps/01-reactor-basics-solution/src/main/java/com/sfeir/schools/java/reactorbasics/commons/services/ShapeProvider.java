@@ -13,20 +13,18 @@ public class ShapeProvider {
     return Flux.just(CIRCLE, SQUARE, SQUARE, TRIANGLE);
   }
 
-
-  public static Flux<Shape> getRandomShapes(int sizeLimit) {
+  public Flux<Shape> getRandomShapes(int sizeLimit) {
     return getInfiniteRandomShapes()
       .take(sizeLimit);
   }
 
-  public static Flux<Shape> getInfiniteRandomShapes() {
+  public Flux<Shape> getInfiniteRandomShapes() {
     return Flux
       .generate(sink -> sink.next(randomShape()))
       .cast(Shape.class);
   }
 
-
-  private static Shape randomShape() {
+  public Shape randomShape() {
     int randomIndex = RandomGenerator.getDefault()
       .nextInt(Shape.values().length);
     return Shape.values()[randomIndex];
