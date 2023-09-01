@@ -6,6 +6,7 @@ import reactor.core.publisher.Flux;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.random.RandomGenerator;
 
 import static com.sfeir.schools.java.reactorbasics.commons.domain.Color.*;
 
@@ -30,7 +31,8 @@ public class ColorProvider {
   }
 
   public Color randomColor() {
-    int randomIndex = RANDOM.nextInt(Color.values().length);
+    int randomIndex = RandomGenerator.getDefault()
+      .nextInt(Color.values().length);
     return Color.values()[randomIndex];
   }
 

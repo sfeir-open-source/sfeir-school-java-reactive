@@ -12,8 +12,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,6 +29,9 @@ public class CreationExercisesTests {
   @Mock
   private ColorProvider colorProviderMock;
 
+  @Mock
+  private ShapeProvider shapeProviderMock;
+
   private WorkshopCreation workshopCreation;
 
   @BeforeEach
@@ -34,16 +39,38 @@ public class CreationExercisesTests {
     MockitoAnnotations.openMocks(this);
     workshopCreation = new WorkshopCreation();
     workshopCreation.colorProvider = colorProviderMock;
+    workshopCreation.shapeProvider = shapeProviderMock;
   }
 
   @Test
-  void testCreateFluxColorsWithList() {
-    List<Color> mockColors = Arrays.asList(Color.RED, Color.GREEN, Color.BLUE);
-    when(colorProviderMock.randomListColor(3)).thenReturn(mockColors);
+  public void testCreateMonoEmpty() {
+    WorkshopCreation workshop = new WorkshopCreation();
 
-    Flux<Color> resultFlux = workshopCreation.createFluxColorsWithList();
+    Mono<Shape> emptyMono = workshop.createMonoEmpty();
 
-    assertEquals(resultFlux.collectList().block(), mockColors);
+    StepVerifier.create(emptyMono)
+      .expectComplete()
+      .verify();
+  }
+
+  @Test
+  public void testCreateMonoColorWithOneColor() {
+    when(shapeProviderMock.randomShape()).thenReturn(SQUARE);
+    Mono<Shape> shapeMono = workshopCreation.createMonoShapeWithOneShape();
+
+    StepVerifier.create(shapeMono)
+      .expectNextMatches(color -> color.equals(SQUARE))
+      .expectComplete()
+      .verify();
+  }
+
+  @Test
+  public void testCreateFluxEmpty() {
+    Flux<Color> emptyFlux = workshopCreation.createFluxEmpty();
+
+    StepVerifier.create(emptyFlux)
+      .expectComplete()
+      .verify();
   }
 
   @Test
@@ -64,11 +91,30 @@ public class CreationExercisesTests {
   }
 
   @Test
+  void testCreateFluxColorsWithList() {
+    List<Color> mockColors = Arrays.asList(Color.RED, Color.GREEN, Color.BLUE);
+    when(colorProviderMock.randomListColor(3)).thenReturn(mockColors);
+
+    Flux<Color> resultFlux = workshopCreation.createFluxColorsWithList();
+
+    assertEquals(resultFlux.collectList().block(), mockColors);
+  }
+
+  @Test
+  public void testCreateFluxSequenceInteger() {
+    Flux<Integer> integerFlux = workshopCreation.createFluxSequenceInteger();
+
+    StepVerifier.create(integerFlux)
+      .expectNext(6, 7, 8, 9, 10, 11)
+      .expectComplete()
+      .verify();
+  }
+
+  @Test
   void test_subscribe_transform_into_symbol() {
     //to improve ? await for dispable to be done ? require to return list instead but filled from the subscribe(...) ?
     WorkshopSubscribe.subscribeShapeIntoSymbol();
   }
-
 
   @Test
   void test_transform_symbol() {
@@ -77,10 +123,17 @@ public class CreationExercisesTests {
       .verifyComplete();
   }
 
-
   @Test
   void generateShapes() {
-    List<Shape> shapes = ShapeProvider.getInfiniteRandomShapes()
+    List<Shape> shapeList = new ArrayList<>();
+
+    for (int i = 0; i < 10; i++) {
+      shapeList.add(SQUARE);
+    }
+
+    when(shapeProviderMock.getInfiniteRandomShapes()).thenReturn(Flux.fromIterable(shapeList));
+
+    List<Shape> shapes = shapeProviderMock.getInfiniteRandomShapes()
       .take(10)
       .collectList()
       .block();
