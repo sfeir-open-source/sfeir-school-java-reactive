@@ -15,6 +15,8 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -111,6 +113,27 @@ public class CreationExercisesTests {
   }
 
   @Test
+  public void testShapeSubscription() {
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    PrintStream originalOut = System.out;
+    System.setOut(new PrintStream(outputStream));
+
+    List<Shape> shapeList = Arrays.asList(CIRCLE, SQUARE, SQUARE, TRIANGLE);
+    when(shapeProviderMock.getRandomShapes(4)).thenReturn(Flux.fromIterable(shapeList));
+    workshopCreation.createAndDisplayFluxWithShapes();
+    System.setOut(originalOut);
+
+    String consoleOutput = outputStream.toString();
+    String[] lines = consoleOutput.split(System.lineSeparator());
+
+    List<String> expectedShapes = List.of("circle", "square", "square", "triangle");
+
+    for (int i = 0; i < expectedShapes.size(); i++) {
+      assertEquals("Received shape: " + expectedShapes.get(i), lines[i].trim());
+    }
+  }
+
+  @Test
   void test_subscribe_transform_into_symbol() {
     //to improve ? await for dispable to be done ? require to return list instead but filled from the subscribe(...) ?
     WorkshopSubscribe.subscribeShapeIntoSymbol();
@@ -140,4 +163,5 @@ public class CreationExercisesTests {
 
     System.out.println(shapes);
   }
+
 }
