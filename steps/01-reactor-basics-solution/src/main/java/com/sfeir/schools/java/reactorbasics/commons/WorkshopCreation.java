@@ -62,6 +62,19 @@ public class WorkshopCreation {
     return Flux.range(6, 6);
   }
 
+  // Créer un Flux contenant des shapes
+  // Souscrire à ce Flux
+  // Afficher en console pour chaque shape par exemple : "Received shape: circle"
+  public void createAndDisplayFluxWithShapes() {
+    // Création d'un flux de formes aléatoires de taille 4
+    Flux<Shape> randomShapesFlux = shapeProvider.getRandomShapes(4);
+
+    // Souscription au flux pour afficher chaque forme
+    randomShapesFlux.subscribe(shape -> {
+      System.out.println("Received shape: " + shape.getLabel());
+    });
+  }
+
   // Méthode pour créer un Mono utilisant Mono.defer()
   public Mono<Shape> createMonoWithDefer() {
     // Utilisation de Mono.defer() pour créer un Mono
