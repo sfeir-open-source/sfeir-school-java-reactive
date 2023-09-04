@@ -42,7 +42,9 @@ function basicsSlides() {
 
 function advancedSlides() {
   return [
-    '03-advanced/00-gestion-erreurs.md',
+    '03-advanced/00-intercepter-erreurs.md',
+    '03-advanced/00b-reprise-erreurs.md',
+    '03-advanced/00c-transformation-erreurs.md',
     '03-advanced/01-back-pressure.md'
   ];
 }
