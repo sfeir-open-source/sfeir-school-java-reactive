@@ -4,6 +4,7 @@ import com.sfeir.schools.java.reactorbasics.commons.domain.Color;
 import reactor.core.publisher.Flux;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.random.RandomGenerator;
@@ -18,7 +19,6 @@ public class ColorProvider {
     return Flux.just(RED, GREEN, GREEN, YELLOW);
   }
 
-
   public Flux<Color> getRandomColors(int sizeLimit) {
     return getInfiniteRandomColors()
       .take(sizeLimit);
@@ -31,9 +31,9 @@ public class ColorProvider {
   }
 
   public Color randomColor() {
-    int randomIndex = RandomGenerator.getDefault()
-      .nextInt(Color.values().length);
-    return Color.values()[randomIndex];
+    Color[] colors = Color.values();
+    int randomIndex = RANDOM.nextInt(colors.length);
+    return colors[randomIndex];
   }
 
   public List<Color> randomListColor(int size) {
@@ -44,5 +44,9 @@ public class ColorProvider {
     }
 
     return randomColorList;
+  }
+
+  public List<Color> getAllColors() {
+    return Arrays.asList(Color.values());
   }
 }

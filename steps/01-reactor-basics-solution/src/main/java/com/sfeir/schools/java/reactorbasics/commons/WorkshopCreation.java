@@ -14,7 +14,9 @@ public class WorkshopCreation {
   public ColorProvider colorProvider;
   public ShapeProvider shapeProvider;
 
-  // Création d'un mono vide
+  /**
+   *   Création d'un mono vide
+   */
   public Mono<Shape> createMonoEmpty() {
     // Retourner un Mono vide
     return Mono.empty();
@@ -35,7 +37,9 @@ public class WorkshopCreation {
     return Flux.empty();
   }
 
-  // Création d'un flux à partir d'éléments indépendant
+  /**
+   * Création d'un flux à partir d'éléments indépendant
+   */
   public Flux<Color> createFluxColorsWithThreeColors() {
     // Création de plusieurs couleurs générées aléatoirement à partir d'un enum
     Color randomColor1 = colorProvider.randomColor();
@@ -46,7 +50,10 @@ public class WorkshopCreation {
     return Flux.just(randomColor1, randomColor2, randomColor3);
   }
 
-  // Création d'un flux à partir d'une liste d'élément
+  /**
+   * Création d'un flux à partir d'une liste d'élément
+   * @return Flux<Color>
+   */
   public Flux<Color> createFluxColorsWithList() {
     // Création d'une liste de 3 couleurs générées aléatoirement à partir d'un enum
     List<Color> listColors = colorProvider.randomListColor(3);
@@ -56,15 +63,21 @@ public class WorkshopCreation {
   }
 
   // TODO : corriger la diapo l'utilisation de range est confuse
-  // Création d'un flux émettant une séquence d'entier de 6 à 11
+
+  /**
+   * Création d'un flux émettant une séquence d'entier de 6 à 11
+   * @return Flux<Integer>
+   */
   public Flux<Integer> createFluxSequenceInteger() {
     // Création d'un flux émettant une séquence d'entier de 6 à 11
     return Flux.range(6, 6);
   }
 
-  // Créer un Flux contenant des shapes
-  // Souscrire à ce Flux
-  // Afficher en console pour chaque shape par exemple : "Received shape: circle"
+  /**
+   * Créer un Flux contenant des shapes
+   * Souscrire à ce Flux
+   * Afficher en console pour chaque shape par exemple : "Received shape: circle"
+   */
   public void createAndDisplayFluxWithShapes() {
     // Création d'un flux de formes aléatoires de taille 4
     Flux<Shape> randomShapesFlux = shapeProvider.getRandomShapes(4);
@@ -75,7 +88,10 @@ public class WorkshopCreation {
     });
   }
 
-  // Méthode pour créer un Mono utilisant Mono.defer()
+  /**
+   * Méthode pour créer un Mono utilisant Mono.defer()
+   * @return Mono<Shape>
+   */
   public Mono<Shape> createMonoWithDefer() {
     // Utilisation de Mono.defer() pour créer un Mono
     return Mono.defer(() -> {
@@ -87,6 +103,7 @@ public class WorkshopCreation {
     });
   }
 
+  // TODO : réfléchir à un exo pour le defer
   public Mono<Shape> callMonoWithDefer() {
     // Appel de la méthode createMonoWithDefer() pour obtenir le Mono
     Mono<Shape> shapeMono = createMonoWithDefer();
