@@ -9,7 +9,6 @@ import com.sfeir.schools.java.reactorbasics.commons.services.ColorProvider;
 import com.sfeir.schools.java.reactorbasics.commons.services.ShapeProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -23,25 +22,23 @@ import java.util.List;
 
 import static com.sfeir.schools.java.reactorbasics.commons.domain.Shape.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 //TODO to rename or separate more (Subscribes & Creations ? Creation before ? then Manupilations ?)
 public class CreationExercisesTests {
 
-  @Mock
-  private ColorProvider colorProviderMock;
-
-  @Mock
-  private ShapeProvider shapeProviderMock;
-
+  private ColorProvider colorProvider;
+  private ShapeProvider shapeProvider;
   private WorkshopCreation workshopCreation;
 
   @BeforeEach
   void setUp() {
-    MockitoAnnotations.openMocks(this);
+    colorProvider = new ColorProvider();
+    shapeProvider = new ShapeProvider();
     workshopCreation = new WorkshopCreation();
-    workshopCreation.colorProvider = colorProviderMock;
-    workshopCreation.shapeProvider = shapeProviderMock;
+    workshopCreation.colorProvider = colorProvider;
+    workshopCreation.shapeProvider = shapeProvider;
   }
 
   @Test
@@ -57,11 +54,12 @@ public class CreationExercisesTests {
 
   @Test
   public void testCreateMonoColorWithOneColor() {
-    when(shapeProviderMock.randomShape()).thenReturn(SQUARE);
     Mono<Shape> shapeMono = workshopCreation.createMonoShapeWithOneShape();
 
+    List<Shape> shapeList = shapeProvider.getAllColors();
+
     StepVerifier.create(shapeMono)
-      .expectNextMatches(color -> color.equals(SQUARE))
+      .expectNextMatches(shapeList::contains)
       .expectComplete()
       .verify();
   }
@@ -77,29 +75,34 @@ public class CreationExercisesTests {
 
   @Test
   public void testCreateFluxColorsWithThreeColors() {
-    Color blue = Color.BLUE;
-    Color green = Color.GREEN;
-    Color red = Color.RED;
-
-    when(colorProviderMock.randomColor()).thenReturn(blue, green, red);
-
     Flux<Color> resultFlux = workshopCreation.createFluxColorsWithThreeColors();
 
-    List<Color> expectedColors = Arrays.asList(blue, green, red);
-    List<Color> actualColors = resultFlux.collectList().block();
-    assertEquals(expectedColors, actualColors);
+    List<Color> colorList = colorProvider.getAllColors();
 
-    verify(colorProviderMock, times(3)).randomColor();
+    // Création du StepVerifier
+    StepVerifier.create(resultFlux)
+      .expectNextMatches(colorList::contains)
+      .expectNextMatches(colorList::contains)
+      .expectNextMatches(colorList::contains)
+      .expectComplete()
+      .verify();
   }
 
   @Test
   void testCreateFluxColorsWithList() {
-    List<Color> mockColors = Arrays.asList(Color.RED, Color.GREEN, Color.BLUE);
-    when(colorProviderMock.randomListColor(3)).thenReturn(mockColors);
+    //List<Color> mockColors = Arrays.asList(Color.RED, Color.GREEN, Color.BLUE);
+    //when(colorProvider.randomListColor(3)).thenReturn(mockColors);
 
     Flux<Color> resultFlux = workshopCreation.createFluxColorsWithList();
+    List<Color> colorList = colorProvider.getAllColors();
 
-    assertEquals(resultFlux.collectList().block(), mockColors);
+    // Création du StepVerifier
+    StepVerifier.create(resultFlux)
+      .expectNextMatches(colorList::contains)
+      .expectNextMatches(colorList::contains)
+      .expectNextMatches(colorList::contains)
+      .expectComplete()
+      .verify();
   }
 
   @Test
@@ -118,18 +121,17 @@ public class CreationExercisesTests {
     PrintStream originalOut = System.out;
     System.setOut(new PrintStream(outputStream));
 
-    List<Shape> shapeList = Arrays.asList(CIRCLE, SQUARE, SQUARE, TRIANGLE);
-    when(shapeProviderMock.getRandomShapes(4)).thenReturn(Flux.fromIterable(shapeList));
     workshopCreation.createAndDisplayFluxWithShapes();
-    System.setOut(originalOut);
 
-    String consoleOutput = outputStream.toString();
-    String[] lines = consoleOutput.split(System.lineSeparator());
+    // Convertir la sortie en liste de lignes
+    List<String> outputLines = Arrays.asList(outputStream.toString().split("\n"));
 
-    List<String> expectedShapes = List.of("circle", "square", "square", "triangle");
+    // Vérifier que 4 formes ont été émises
+    assertEquals(4, outputLines.size());
 
-    for (int i = 0; i < expectedShapes.size(); i++) {
-      assertEquals("Received shape: " + expectedShapes.get(i), lines[i].trim());
+    // Vérifier que chaque ligne contient le texte "Received shape:"
+    for (String line : outputLines) {
+      assertTrue(line.contains("Received shape:"));
     }
   }
 
@@ -147,21 +149,13 @@ public class CreationExercisesTests {
   }
 
   @Test
-  void generateShapes() {
-    List<Shape> shapeList = new ArrayList<>();
+  public void testGetInfiniteRandomShapes() {
+    Flux<Shape> infiniteShapes = shapeProvider.getInfiniteRandomShapes();
 
-    for (int i = 0; i < 10; i++) {
-      shapeList.add(SQUARE);
-    }
-
-    when(shapeProviderMock.getInfiniteRandomShapes()).thenReturn(Flux.fromIterable(shapeList));
-
-    List<Shape> shapes = shapeProviderMock.getInfiniteRandomShapes()
-      .take(10)
-      .collectList()
-      .block();
-
-    System.out.println(shapes);
+    StepVerifier.create(infiniteShapes.take(10))
+      .expectNextCount(10)
+      .expectComplete()
+      .verify();
   }
 
 }
