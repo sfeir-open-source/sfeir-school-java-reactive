@@ -1,3 +1,7 @@
+<!-- .slide: class="transition bg-pink" -->
+# Les séquences de données
+
+##==##
 <!-- .slide: -->
 
 # Flux<T>

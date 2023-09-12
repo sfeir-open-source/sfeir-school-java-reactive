@@ -1,5 +1,5 @@
 <!-- .slide: class="two-column" -->
-# Opérateurs doOn et block
+# Consommation
 
 ## doOn()
 * D'autres opérateurs existent pour agir sur les événements du flux sans l'interrompre.

@@ -2,7 +2,7 @@
 
 # Création d'un Flux :
 
-* Flux.just() : Crée un Flux avec les éléments fournis en paramètre.
+* _`Flux.just()`_ : Crée un Flux avec les éléments fournis en paramètre.
 ```java[]
 Flux<Integer> flux = Flux.just(1, 2, 3, 4, 5);
 ```

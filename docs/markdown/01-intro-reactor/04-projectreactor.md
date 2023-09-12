@@ -1,3 +1,7 @@
+<!-- .slide: class="transition bg-pink" -->
+# Project Reactor
+
+##==##
 <!-- .slide: -->
 
 # Bibliothéque Project Reactor :

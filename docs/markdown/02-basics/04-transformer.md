@@ -1,4 +1,8 @@
 <!-- .slide: class="transition bg-pink" -->
+# Les opérateurs
+
+##==##
+<!-- .slide: -->
 
 # Transformer
 
@@ -17,7 +21,7 @@ on peut combiner plusieurs opérateurs pour les manipuler avec une grande flexib
 
 et effectuer des traitement complexes et lisibles
 
-#==#
+##==##
 <!-- .slide: class="" -->
 
 # Opérateurs de transformations

@@ -9,7 +9,6 @@
 * Quelques outils :
   * Java 17
   * Maven
-  * Postman
 * Cloner un repository
 
 Notes:

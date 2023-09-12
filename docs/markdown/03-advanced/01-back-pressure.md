@@ -1,4 +1,7 @@
 <!-- .slide: class="transition bg-pink" -->
+# Charge et mitigation
+
+##==##
 
 # Contre-pression
 
@@ -19,13 +22,7 @@ Pouvoir réguler le rythme d'emission de signaux:
 - empêcher de saturer la memoire du souscripteur
 - éviter que le système ne s'effondre sous la pression
 
-#==#
-<!-- .slide: class="" -->
-
-# Opérateurs de contre-pression
-
-
-#==#
+##==##
 <!-- .slide: class="" -->
 
 # Stratégies de contre-pression
@@ -35,3 +32,8 @@ Pouvoir réguler le rythme d'emission de signaux:
 - Ignorer
 
 - Tampon
+
+##==##
+<!-- .slide: class="" -->
+
+# Opérateurs de contre-pression
