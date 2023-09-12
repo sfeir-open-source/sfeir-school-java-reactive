@@ -75,6 +75,5 @@ docs/test.html
 *.iml
 *.ipr
 
-
 ### VS Code ###
 .vscode/
