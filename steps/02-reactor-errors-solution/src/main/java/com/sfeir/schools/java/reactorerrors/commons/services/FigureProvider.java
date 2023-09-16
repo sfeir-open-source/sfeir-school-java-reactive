@@ -5,11 +5,7 @@ import com.sfeir.schools.java.reactorerrors.commons.domain.Figure;
 import com.sfeir.schools.java.reactorerrors.commons.domain.Shape;
 import reactor.core.publisher.Flux;
 
-import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.random.RandomGenerator;
-
-import static com.sfeir.schools.java.reactorerrors.commons.domain.Shape.*;
 
 public class FigureProvider {
 
@@ -17,7 +13,7 @@ public class FigureProvider {
   ColorProvider colorProvider = new ColorProvider();
   ShapeProvider shapeProvider = new ShapeProvider();
 
-  public Flux<Figure> get5FiguresWithConditionalError() {
+  public Flux<Figure> getFiveFiguresAfterOneError() {
     return Flux.create(sink -> {
       for (int i = 0; i < 5; i++) {
         if (i == 3 && !hasThrown.get()) { // Générer une exception au 4e élément seulement lors du premier appel
