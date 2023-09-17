@@ -112,4 +112,26 @@ public class Workshop02ErrorsTest {
 
     assert(hasLoggedError);
   }
+
+  @Test
+  public void testOnErrorRetryThenExceptionAndLog_returnExceptionAfterRetry() {
+    Flux<Shape> shapeFlux = workshop02errors.onErrorRetryThenExceptionAndLog();
+
+    Logger logger = (Logger) LoggerFactory.getLogger(Workshop02Errors.class);
+    ListAppender<ILoggingEvent> listAppender = new ListAppender<>();
+    listAppender.start();
+    logger.addAppender(listAppender);
+
+    StepVerifier.create(shapeFlux)
+      .expectNextCount(9)
+      .expectErrorMatches(error -> error instanceof Exception &&
+        "Erreur lors de l'émission du Flux de Shape".equals(error.getMessage()))
+      .verify(Duration.ofSeconds(5));
+
+    boolean hasLoggedError = listAppender.list.stream()
+      .anyMatch(event -> event.getLevel().equals(Level.ERROR) &&
+        "Erreur loggée : Erreur lors de l'émission du Flux de Shape".equals(event.getFormattedMessage()));
+
+    assert(hasLoggedError);
+  }
 }

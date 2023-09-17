@@ -93,4 +93,19 @@ public class Workshop02Errors {
     return figureProvider.getFiveFiguresAfterOneError()
       .doOnError(e -> log.error("Erreur rencontrée", e));
   }
+
+  /**
+   * Appeler la méthode getFiveShapesAfterOneError de shapeProvider
+   * Si il y a une erreur tenter de la rappeler après 1 seconde puis après 2 secondes
+   * Si elle tombe toujours en erreur lever l'exception "Erreur lors de l'émission du Flux de Shape"
+   * et logger l'erreur "Erreur loggée : " + e.getMessage()
+   * @return Flux<Shape>
+   */
+  public Flux<Shape> onErrorRetryThenExceptionAndLog() {
+    Flux<Shape> defaultShapeFlux = Flux.just(Shape.CIRCLE, Shape.SQUARE, Shape.SQUARE, Shape.TRIANGLE, Shape.SQUARE);
+    return shapeProvider.getFiveShapesAfterOneError()
+      .retryWhen(Retry.backoff(2, Duration.ofSeconds(1)))
+      .onErrorMap(error -> new Exception("Erreur lors de l'émission du Flux de Shape"))
+      .doOnError(e -> log.error("Erreur loggée : " + e.getMessage()));
+  }
 }
