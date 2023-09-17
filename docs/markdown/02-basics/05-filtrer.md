@@ -1,11 +1,31 @@
 <!-- .slide: class="" -->
 
-# Filtrer
+# Opérateurs filtrant
 
-- _`filter`_ : filtrer les éléments d'un flux en fonction d'une condition
-- _`distinct`_ : élimine les éléments en double
+- _`filter`_ : filtrer les éléments d'un flux selon une condition
+```java[]
+Flux<Integer> evenNumbers = Flux.just(1, 2, 3, 4, 5, 6, 7, 8)
+    .filter(number -> number % 2 == 0);
+```
+
+- _`distinct`_ : élimine les doublons
+```java[]
+Flux<Integer> distinctNumbers = Flux.just(1, 1, 2, 3, 3, 3, 4, 5, 5)
+    .distinct();
+```
+
 - _`all`_ : vérifie si tous les éléments d'un flux satisfont une condition donnée
-- _`any`_ : vérifie si au moins un des éléments d'un flux satisfont une condition donnée
+```java[]
+Mono<Boolean> allMatch = Flux.just(2, 4, 6, 8)
+    .all(number -> number % 2 == 0);
+```
+
+- _`any`_ : vérifie si au moins un des éléments d'un flux satisfait une condition donnée
+```java[]
+Mono<Boolean> anyMatches = Flux.just(1, 2, 3, 5, 7)
+    .all(number -> number % 2 == 0);
+```
+ <!-- .element: class="list-fragment" -->
 
 Notes:
 
