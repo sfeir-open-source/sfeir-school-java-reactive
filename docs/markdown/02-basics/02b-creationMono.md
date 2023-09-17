@@ -18,3 +18,9 @@ Mono<Integer> mono = Mono.defer(() -> Mono.just(heavyCalculation()));
 ```java[]
 Mono<String> mono = Mono.fromCallable(() -> fetchDataFromExternalService());
 ```
+Notes:
+- Mono.justOrEmpty() à partir d'un optional
+- Mono.fromSupplier() : à partir d'une tache asynchrone
+- Mono.fromFuture() 
+- Mono.from(Flux.just("Hello", "From", "Publisher").next()) a partir d'un flux
+- Mono.error(new RuntimeException("Une erreur s'est produite"));

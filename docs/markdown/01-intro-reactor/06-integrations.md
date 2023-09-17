@@ -12,7 +12,7 @@
 * Kafka, RabbitMQ : Les clients réactifs pour ces services de messagerie sont disponibles.
 
 Notes:
-- BDD : vous pouvez effectuer des opérations sur la base de données de manière non-bloquante et avec la gestion du backpressure
-- webflux : permettant de créer des APIs REST réactives facilement intégrées avec d'autres composants Spring.
-- reactive stream : permet l'interopérabilité avec d'autres bibliothèques et frameworks qui respectent cette spécification.
-- websocket : particulièrement utile pour des applications en temps réel où la latence et l'utilisation des ressources sont des préoccupations majeures
+- BDD: Opérations non-bloquantes et gestion du backpressure.
+- Webflux: Création d'APIs REST réactives et intégration Spring.
+- Reactive Stream: Interopérabilité avec d'autres frameworks conformes.
+- Websocket: Idéal pour les apps en temps réel, optimise latence et ressources.

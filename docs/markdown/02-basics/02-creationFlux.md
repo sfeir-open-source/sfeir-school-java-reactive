@@ -19,3 +19,13 @@ Flux<Integer> flux = Flux.range(1, 5); // Émet : 1, 2, 3, 4, 5
 ```java[]
 Flux<String> flux = Flux.empty();
 ```
+
+Notes:
+- Flux.fromArray(): À partir d'un tableau.
+- Flux.generate(): Utilise un générateur synchrone.
+- Flux.fromStream(): À partir d'un Stream Java 8+.
+- Flux.from(): À partir d'une source Reactive Streams.
+- Flux.interval(): Émet un élément à chaque période spécifiée.
+
+
+
