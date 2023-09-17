@@ -37,4 +37,6 @@ Notes:
 - block() antipattern, précaution
 - code legacy, ou avec biblio non reactives
 - trompeur return last value
-- risque de blocage, doit être une exception 
+- risque de blocage, doit être une exception
+
+
