@@ -22,3 +22,9 @@ Flux.just(1, 2, 0)
     .doOnError(e -> log.error("Erreur rencontrée", e))
     .subscribe(System.out::println, System.err::println);
 ```
+
+Notes: 
+- Exception personnaliser : améliore débogage et gestion d'erreur 
+- Convertion d'exception bas niveau en exception métier plus significative
+- doOnError : ne résout pas l'erreur mais permet de réagir 
+- Autre exemple : lancement d'alerte possible comme l'envoie d'un mail

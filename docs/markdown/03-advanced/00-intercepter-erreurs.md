@@ -9,7 +9,7 @@
 Flux.just(1, 2, 0)
     .map(i -> 10 / i)
     .onErrorReturn(0)
-    .subscribe(System.out::println, System.err::println);
+    .subscribe(System.out::println);
 
 ```
 
@@ -23,5 +23,11 @@ Flux.just(1, 2, 0)
 Flux.just(1, 2, 0)
     .map(i -> 10 / i)
     .onErrorResume(e -> Flux.just(-1))
-    .subscribe(System.out::println, System.err::println);
+    .subscribe(System.out::println);
 ```
+
+Notes:
+- onErrorReturn : maintiens le flux actif, éviter fin abrupte
+- Utile si on ne se soucit pas de la nature de l'erreur
+- onErrorResume : par ex permet d'émettre un autre Flux correctif
+- introduire une logique métier complexe dans le traitement des erreurs
