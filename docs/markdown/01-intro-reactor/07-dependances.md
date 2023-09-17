@@ -10,8 +10,8 @@
   * Ou alors avec la bibliothèque Caffeine pour des opérations plus complexes
 
 Notes:
-- Reactor Netty : créer des applications réseau à haute performance, pour divers protocoles HTTP, WebSocket et autres. Idéal pour des systèmes avec de nombreux utilisateurs ou requêtes simultanées.
-- Reactor Test : outil essentiel pour s'assurer que votre code réactif est robuste et prêt pour la production. Méthode pour vérifier les flux et mono et même simuler des conditions de backpressure
-- Reactor Debug Agent : aide à améliorer le débogage des pipelines de flux. peut attacher des métadonnées supplémentaires aux flux afin d'identifier plus facilement où une erreur pourrait se produire.
-- Cache : permettent de mettre en cache le résultat d'une opération réactive. Eviter les appels redondant ou des appels réseau couteux en ressource
-- Caffeine : hautement configurable , par exemple, de définir des politiques d'expiration ou d'éviction du cache.
+- Reactor Netty: Pour des apps réseau **haute performance**. Supporte **plusieurs protocoles**. Idéal pour gérer **beaucoup d'utilisateurs ou requêtes**.
+- Reactor Test: Outil pour tester la robustesse du code réactif. Permet de **simuler des conditions de backpressure**.
+- Reactor Debug Agent: Améliore le débogage en ajoutant des métadonnées aux flux. Aide à **localiser les erreurs**.
+- Cache: **Économise** des ressources en mettant en cache les résultats d'opérations réactives.
+- Caffeine: Configurable pour des politiques de cache avancées, comme l'expiration ou l'éviction.

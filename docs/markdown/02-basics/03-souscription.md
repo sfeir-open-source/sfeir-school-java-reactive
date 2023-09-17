@@ -31,3 +31,9 @@ mono.subscribe(
 );
 
 ```
+
+Notes:
+- Avant souscription, Flux est froid càd inactif
+- 3 lambdas possibles, 1 pour les éléments, 1 erreurs, 1 fin
+- Souscription multiples possible
+- Comme Flux Mono est Lazy: sans souscription ils ne font rien

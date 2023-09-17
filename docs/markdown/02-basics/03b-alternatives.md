@@ -28,3 +28,13 @@ Mono<String> mono = Mono.just("Hello, World!");
 String result = mono.block();
 System.out.println(result);
 ```
+
+Notes:
+- doOn : utile débogage et side-effects
+- doOnNext jorunalisation, mersure perf
+- doOnError gestion erreur, alerte
+- DoOnComplete libération ressources, signalement tache finis
+- block() antipattern, précaution
+- code legacy, ou avec biblio non reactives
+- trompeur return last value
+- risque de blocage, doit être une exception 
