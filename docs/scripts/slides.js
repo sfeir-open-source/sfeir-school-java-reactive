@@ -34,9 +34,11 @@ function basicsSlides() {
     '02-basics/02b-creationMono.md',
     '02-basics/03-souscription.md',
     '02-basics/03b-alternatives.md',
+    '02-basics/03c-workshop1-partie1.md',
     '02-basics/04-transformer.md',
     '02-basics/05-filtrer.md',
-    '02-basics/06-combiner.md'
+    '02-basics/06-combiner.md',
+    '02-basics/07-workshop1-partie2.md'
   ];
 }
 
@@ -45,7 +47,8 @@ function advancedSlides() {
     '03-advanced/00-intercepter-erreurs.md',
     '03-advanced/00b-reprise-erreurs.md',
     '03-advanced/00c-transformation-erreurs.md',
-    '03-advanced/01-back-pressure.md'
+    '03-advanced/01-back-pressure.md',
+    '03-advanced/02-workshop2.md'
   ];
 }
 
