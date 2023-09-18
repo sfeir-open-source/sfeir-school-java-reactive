@@ -12,8 +12,7 @@ import static com.sfeir.schools.java.reactorerrors.commons.domain.Color.*;
 
 public class ColorProvider {
 
-  private final Random RANDOM = new Random();
-
+  private static final Random random = new Random();
   public static Flux<Color> getConstantColors() {
     return Flux.just(RED, GREEN, GREEN, YELLOW);
   }
@@ -45,7 +44,7 @@ public class ColorProvider {
   }
 
   public Color randomColor() {
-    int randomIndex = RandomGenerator.getDefault()
+    int randomIndex = random
       .nextInt(Color.values().length);
     return Color.values()[randomIndex];
   }
