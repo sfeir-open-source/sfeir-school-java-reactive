@@ -102,10 +102,29 @@ public class Workshop02Errors {
    * @return Flux<Shape>
    */
   public Flux<Shape> onErrorRetryThenExceptionAndLog() {
-    Flux<Shape> defaultShapeFlux = Flux.just(Shape.CIRCLE, Shape.SQUARE, Shape.SQUARE, Shape.TRIANGLE, Shape.SQUARE);
-    return shapeProvider.getFiveShapesAfterOneError()
+    return shapeProvider.getFiveShapesOnError()
       .retryWhen(Retry.backoff(2, Duration.ofSeconds(1)))
       .onErrorMap(error -> new Exception("Erreur lors de l'émission du Flux de Shape"))
       .doOnError(e -> log.error("Erreur loggée : " + e.getMessage()));
+  }
+
+  /**
+   * Appeler la méthode getFiveShapesAfterOneError de shapeProvider
+   * Si il y a une erreur créer une log erreur "Une erreur s'est produite"
+   * Puis tenter de la rappeler 1 fois
+   * Si elle tombe toujours en erreur créer une log erreur "Tentative échouée, retour du Flux par défaut"
+   * et enfin retourner le Flux par défaut defaultShapeFlux
+   * @return Flux<Shape>
+   */
+  public Flux<Shape> onErrorLogRetryElseLogAndDefaultFlux() {
+    Flux<Shape> defaultShapeFlux = Flux.just(Shape.CIRCLE, Shape.SQUARE, Shape.SQUARE, Shape.TRIANGLE, Shape.SQUARE);
+    return shapeProvider.getFiveShapesOnError()
+      .doOnError(e -> log.error("Une erreur s'est produite"))
+      .retry(1)
+      .onErrorResume(e -> {
+        log.error("Tentative échouée, retour du Flux par défaut");
+        return defaultShapeFlux;
+      });
+
   }
 }

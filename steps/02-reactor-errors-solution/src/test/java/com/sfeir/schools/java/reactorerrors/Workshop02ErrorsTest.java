@@ -134,4 +134,28 @@ public class Workshop02ErrorsTest {
 
     assert(hasLoggedError);
   }
+
+  @Test
+  public void testOnErrorLogRetryElseLogAndDefaultFlux_returnDefaultFluxAndLog() {
+    List<Shape> defaultShapesFlux = Arrays.asList(Shape.CIRCLE, Shape.SQUARE, Shape.SQUARE, Shape.TRIANGLE, Shape.SQUARE);
+
+    Flux<Shape> shapeFlux = workshop02errors.onErrorLogRetryElseLogAndDefaultFlux();
+
+    Logger logger = (Logger) LoggerFactory.getLogger(Workshop02Errors.class);
+    ListAppender<ILoggingEvent> listAppender = new ListAppender<>();
+    listAppender.start();
+    logger.addAppender(listAppender);
+
+    StepVerifier.create(shapeFlux)
+      .expectNextCount(6)
+      .expectNextSequence(defaultShapesFlux)
+      .expectComplete()
+      .verify();
+
+    boolean hasLoggedError = listAppender.list.stream()
+      .anyMatch(event -> event.getLevel().equals(Level.ERROR) &&
+        "Tentative échouée, retour du Flux par défaut".equals(event.getFormattedMessage()));
+
+    assert(hasLoggedError);
+  }
 }

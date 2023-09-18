@@ -6,12 +6,14 @@ import reactor.core.publisher.Flux;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.random.RandomGenerator;
 
 import static com.sfeir.schools.java.reactorbasics.commons.domain.Shape.*;
 
 public class ShapeProvider {
 
+  private static final Random random = new Random();
   public static Flux<Shape> getConstantShapes() {
     return Flux.just(CIRCLE, SQUARE, SQUARE, TRIANGLE);
   }
@@ -28,7 +30,7 @@ public class ShapeProvider {
   }
 
   public Shape randomShape() {
-    int randomIndex = RandomGenerator.getDefault()
+    int randomIndex = random
       .nextInt(Shape.values().length);
     return Shape.values()[randomIndex];
   }
