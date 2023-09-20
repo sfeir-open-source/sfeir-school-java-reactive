@@ -26,12 +26,7 @@ public class Workshop02Errors {
    * @return Flux<Color>
    */
   public Flux<Color> onErrorReturnRed() {
-    // Appelle la méthode getRandomError pour obtenir un flux de couleurs aléatoires.
-    // La méthode a été modifiée pour émettre une exception après l'émission de 3 couleurs.
-    return colorProvider.getRandomError(5)
-      // Utilise onErrorReturn pour spécifier une valeur de retour en cas d'erreur.
-      // Ici, nous avons choisi de retourner la couleur ROUGE si une exception est levée.
-      .onErrorReturn(Color.RED);
+    return colorProvider.getRandomError(5);
   }
 
   /**
@@ -43,25 +38,16 @@ public class Workshop02Errors {
   public Flux<Shape> onErrorReturnDefaultFlux() {
     Flux<Shape> defaultShapesFlux = Flux.just(Shape.SQUARE,Shape.SQUARE,Shape.SQUARE,Shape.SQUARE,Shape.SQUARE);
 
-    // Appelle la méthode getRandomError pour obtenir un flux de shaoes aléatoires.
-    // La méthode a été modifiée pour émettre une exception après l'émission de 3 shapes.
-    return shapeProvider.getRandomError(5)
-      // Utilise onErrorResume pour spécifier une valeur de retour en cas d'erreur.
-      // Ici, nous avons choisi de retourner le flux defaultShapesFlux si une exception est levée.
-      .onErrorResume(e -> {
-        // System.out.println("Erreur interceptée : " + e.getMessage());
-        return defaultShapesFlux;
-      });
+    return shapeProvider.getRandomError(5);
   }
 
   /**
    * Appeler la méthode getFiveFiguresAfterOneError()
-   * si elle génére une erreur, relancé la
+   * si elle génére une erreur, relancé la une seule fois
    * @return Flux<Figure>
    */
   public Flux<Figure> onErrorRetryOneTime() {
-    return figureProvider.getFiveFiguresAfterOneError()
-      .retry(1); // Relancer une fois en cas d'erreur
+    return figureProvider.getFiveFiguresAfterOneError();
   }
 
   /**
@@ -70,8 +56,7 @@ public class Workshop02Errors {
    * @return Flux<Figure>
    */
   public Flux<Figure> onErrorRetryAfterOneSecond() {
-    return figureProvider.getFiveFiguresAfterOneError()
-      .retryWhen(Retry.backoff(1, Duration.ofSeconds(1)));
+    return figureProvider.getFiveFiguresAfterOneError();
   }
 
   /**
@@ -80,8 +65,7 @@ public class Workshop02Errors {
    * @return Flux<Figure>
    */
   public Flux<Figure> onErrorReturnCustomException() {
-    return figureProvider.getFiveFiguresAfterOneError()
-      .onErrorMap(error -> new Exception("Erreur sur le flux de figures", error));
+    return figureProvider.getFiveFiguresAfterOneError();
   }
 
   /**
@@ -90,8 +74,7 @@ public class Workshop02Errors {
    * @return Flux<Figure>
    */
   public Flux<Figure> onErrorPrintLogError() {
-    return figureProvider.getFiveFiguresAfterOneError()
-      .doOnError(e -> log.error("Erreur rencontrée", e));
+    return figureProvider.getFiveFiguresAfterOneError();
   }
 
   /**
@@ -102,10 +85,7 @@ public class Workshop02Errors {
    * @return Flux<Shape>
    */
   public Flux<Shape> onErrorRetryThenExceptionAndLog() {
-    return shapeProvider.getFiveShapesOnError()
-      .retryWhen(Retry.backoff(2, Duration.ofSeconds(1)))
-      .onErrorMap(error -> new Exception("Erreur lors de l'émission du Flux de Shape"))
-      .doOnError(e -> log.error("Erreur loggée : " + e.getMessage()));
+    return shapeProvider.getFiveShapesOnError();
   }
 
   /**
@@ -118,13 +98,7 @@ public class Workshop02Errors {
    */
   public Flux<Shape> onErrorLogRetryElseLogAndDefaultFlux() {
     Flux<Shape> defaultShapeFlux = Flux.just(Shape.CIRCLE, Shape.SQUARE, Shape.SQUARE, Shape.TRIANGLE, Shape.SQUARE);
-    return shapeProvider.getFiveShapesOnError()
-      .doOnError(e -> log.error("Une erreur s'est produite"))
-      .retry(1)
-      .onErrorResume(e -> {
-        log.error("Tentative échouée, retour du Flux par défaut");
-        return defaultShapeFlux;
-      });
+    return shapeProvider.getFiveShapesOnError();
 
   }
 }
