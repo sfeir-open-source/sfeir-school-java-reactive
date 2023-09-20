@@ -21,9 +21,11 @@ La production de signaux n'est pas nécessairement constante
 
 Pouvoir réguler le rythme d'emission de signaux:
 
-- devoir faire des opérations longues
-- empêcher de saturer la memoire du souscripteur
-- éviter que le système ne s'effondre sous un débit élevé
+- quand on doit faire des IO (lecture/écriture) parfois trop longues
+- empêcher de saturer la memoire du subscriber
+- éviter que le système ne s'effondre sous un débit trop élevé pour lui
+
+on va choisir comment on mitige la cadence
 
 ##==##
 <!-- .slide: class="" -->
@@ -41,11 +43,13 @@ Notes:
 
 Plusieurs approches pour endiguer la surcharge:
 - déclencher une erreur
-- mettre de côté pour temporiser
-- ignorer des éléments, voir prendre juste le dernier
+- mettre de côté le éléments pour temporiser, via un buffer
+- ignorer des éléments, (drop)
+    - voir prendre juste le dernier (last)
+    - voir le dernier élément sur un périodicité choisie (échantillonage)
 
-Peut être effectué au choix 
-- côté "producteur de données" (creation de flux/mono) : si besoin de stratégie commune
+Peut être effectué au choix
+- côté "producteur de données" (creation de flux/mono) : si besoin de stratégie commune à tous les subscriber ou imposée par le publisher
 - côté "abonnés" (vers la souscription): besoin de stratégies spécifiques aux traitements par abonnés
 
 ##==##
@@ -85,22 +89,25 @@ source.getMessages()
 Notes:
 
 - onBackpressureError: 
-une exception est déclenchée si le consommateur ne peut pas traiter les éléments à la vitesse à laquelle ils sont produits. 
-Signifie que si le consommateur est trop lent, une exception sera levée pour signaler un problème de backpressure.
+    - une exception est déclenchée 
+    - si le consommateur ne peut pas traiter les éléments à la vitesse à laquelle ils sont produits. 
+    - Signifie que si le consommateur est trop lent, 
+        - une exception sera levée pour signaler un problème de backpressure.
 
 - onBackpressureBuffer: 
-créer un tampon pour stocker temporairement les éléments en attente 
-lorsque le consommateur ne peut pas les traiter immédiatement
-possible de spécifier la taille du tampon en tant que paramètre. 
+    - créer un tampon pour stocker temporairement les éléments en attente 
+    - lorsque le consommateur ne peut pas les traiter immédiatement
+    - possible de spécifier la taille du tampon en tant que paramètre. 
 
 - onBackpressureDrop: 
-les éléments excédentaires sont simplement abandonnés lorsqu'il y a une situation de backpressure. 
-Signifie que si le consommateur ne peut pas suivre la production, les éléments non consommés sont ignorés.
+   - les éléments excédentaires sont simplement abandonnés 
+   - lorsqu'il y a une situation de backpressure. 
+   - Signifie que si le consommateur ne peut pas suivre la production, 
+    - les éléments non consommés sont ignorés.
 
 - onBackpressureLatest:
-conserver uniquement la dernière valeur émise 
-Les valeurs précédentes sont remplacées par les nouvelles valeurs.
-
+    - conserver uniquement la dernière valeur émise 
+    - Les valeurs précédentes sont remplacées par les nouvelles valeurs.
 
 ##==##
 <!-- .slide: class="" -->
@@ -134,3 +141,6 @@ limiter la vitesse de production afin que le consommateur puisse suivre.
 - sample :
 échantillonner les éléments émis à un rythme régulier défini par une période. 
 prendre le dernier éléments émis au cours d'une période donnée
+
+Y'en a d'autre:
+- take / takeUntil

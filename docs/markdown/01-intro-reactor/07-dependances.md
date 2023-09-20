@@ -2,7 +2,7 @@
 
 # Dépendances:
 
-* Reactor Netty : Un ensemble de connecteurs réseau asynchrones et non bloquants basés sur Netty et Project Reactor.
+* Reactor Netty : partie réseau et web basée sur le serveur Netty
 * Reactor Test : Pour écrire des tests unitaires pour vos flux Reactor.
 * Reactor Debug Agent : Pour améliorer le débogage des pipelines de flux.
 * Cache :
