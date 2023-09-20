@@ -28,7 +28,7 @@ import : _`/steps/01-reactor-basics`_
   - _`Workshop01FluxFilterTest`_
   - _`Workshop01FluxCombineTest`_
 
-- You must fill missing code in method from classes, to pass unit tests : 
+- You must fill missing code in method from classes, to pass unit tests :
   - _`Workshop01FluxTransform`_
   - _`Workshop01FluxFilter`_
   - _`Workshop01FluxCombine`_
