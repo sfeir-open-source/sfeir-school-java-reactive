@@ -1,6 +1,5 @@
 package com.sfeir.schools.java.reactorbasics.commons;
 
-import com.sfeir.schools.java.reactorbasics.commons.Workshop01FluxFilter;
 import com.sfeir.schools.java.reactorbasics.commons.domain.Color;
 import com.sfeir.schools.java.reactorbasics.commons.domain.Figure;
 import com.sfeir.schools.java.reactorbasics.commons.domain.Shape;
