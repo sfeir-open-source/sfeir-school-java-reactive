@@ -18,11 +18,17 @@ public class ColorProvider {
     return Flux.just(RED, GREEN, GREEN, YELLOW);
   }
 
+  /**
+   * Produces a sized Flux of random Colors
+   */
   public Flux<Color> getRandomColors(int sizeLimit) {
     return getInfiniteRandomColors()
       .take(sizeLimit);
   }
 
+  /**
+   * Produce an infinite Flux of random Colors
+   */
   public Flux<Color> getInfiniteRandomColors() {
     return Flux
       .generate(sink -> sink.next(randomColor()))
