@@ -109,7 +109,7 @@ public class Workshop01Creation {
     // Utilisation de Mono.defer() pour créer un Mono
     Mono<Shape> shapeMono = Mono.defer(() -> {
       // À l'intérieur de la lambda, nous générons un Shape aléatoire
-      Shape randomShape = new ShapeProvider().randomShape();
+      Shape randomShape = shapeProvider.randomShape();
 
       // Retourne un Mono contenant le Shape aléatoire
       return Mono.just(randomShape);
