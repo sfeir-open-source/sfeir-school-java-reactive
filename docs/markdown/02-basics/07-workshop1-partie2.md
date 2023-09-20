@@ -1,10 +1,11 @@
 <!-- .slide: class="exercice" -->
-# Manipuler les Flux et Mono
+# Les opérateurs
 
 ## Lab
-**Goal** : Les opérations de bases
+**Goal** : Utiliser quelques opérateurs de bases
 
-[👉 Lab 2](https://github.com/sfeir-open-source/sfeir-school-java-reactive/blob/main/steps/01-reactor-basics/src/main/java/com/sfeir/schools/java/reactorbasics/commons/WorkshopFluxTransformations.java)
+[👉 Lab 2](https://github.com/sfeir-open-source/sfeir-school-java-reactive/blob/main/steps/01-reactor-basics/)
 
 Notes:
-Nathan
+
+Sylvain

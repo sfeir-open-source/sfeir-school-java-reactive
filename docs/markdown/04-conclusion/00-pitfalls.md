@@ -12,6 +12,7 @@ Dangers de l'opérateur _`block()`_
 Les flux sont potentiellement infinis
 
 Notes:
+**NATHAN**
 
 - block:
 rendre immédiate et synchrone le publisher: effets de bords
@@ -29,5 +30,8 @@ Pas une solution miracle à utiliser partout
 
 Plus grande complexité
 
-Plus difficile à débugger
+Plus difficile à débugger et tester
 
+
+Notes:
+**SYLVAIN**

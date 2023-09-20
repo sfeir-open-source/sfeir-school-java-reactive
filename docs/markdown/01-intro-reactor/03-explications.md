@@ -10,7 +10,13 @@ Changement de paradigme
   * _Synchrone_ -> _Asynchrone_
 
 Notes:
-se retrouve notablement dans 
+Reactive -> qui réagit à des événenement ou des changements
+
+Evenement peut être de la données
+
+on est en réaction à la réception de données ou de messages depuis 1 ou plusieurs sources
+
+se retrouve donc notablement dans la prog
   - orienté "événements" 
   - orienté "messages"
 
@@ -46,10 +52,17 @@ en exploitant la parallélisation et en réduisant les délais, et est symbolis�
 
 _`Publisher`_ émet des signaux vers _`Subscriber`_
 
-Les _`Subscriber`_ opèrent selon les signaux. 
+Les _`Subscribers`_ opèrent selon les signaux. 
 
 ![center-w-800](./assets/images/publisher_subscriber_signal.png)
 
+Notes: 
+
+On parle de "souscription" plus que d'éxecution.
+
+A l'exécution des bloc de code vous construisez les chaines réactive, 
+
+mais le comportement décrit par la chaine survient lors de souscription à des événements
 
 ##==##
 <!-- .slide: class="with-code"-->

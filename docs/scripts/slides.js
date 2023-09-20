@@ -56,7 +56,8 @@ function conclusionSlides() {
   return [
     '04-conclusion/00-pitfalls.md',
     '04-conclusion/01-conclusion.md',
-    '04-conclusion/02-perspectives.md'
+    '04-conclusion/02-perspectives.md',
+    '04-conclusion/99-satisfaction-form.md'
   ];
 }
 

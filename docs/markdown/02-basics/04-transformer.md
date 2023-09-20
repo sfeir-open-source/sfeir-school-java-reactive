@@ -49,16 +49,16 @@ Flux<GroupedFlux<Integer, Integer>> groupedByParity = Flux.just(1, 2, 3, 4, 5)
 Notes:
 
 * MAP : 
-permet de transformer chaque élément d'un flux en un autre élément en appliquant une fonction
+    - permet de transformer chaque élément d'un flux en un autre élément en appliquant une fonction
 
 * FLATMAP : 
-permet de transformer chaque élément d'un flux en un autre flux
-puis de fusionner ces flux résultants en un seul flux. 
-utile si besoin d'opérations asynchrones pour chaque élément du flux.
+    - permet de transformer chaque élément d'un flux en un autre flux
+    - puis de fusionner ces flux résultants en un seul flux. 
+    - utile si besoin d'opérations asynchrones pour chaque élément du flux.
 
 * GROUPBY : 
-regroupe les éléments d'un flux en fonction d'un critère de regroupement 
-créé un sous-flux pour chaque groupe distinct
+    - regroupe les éléments d'un flux en fonction d'un critère de regroupement
+    - créé un sous-flux pour chaque groupe distinct
 
 
 

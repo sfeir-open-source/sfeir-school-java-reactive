@@ -1,28 +1,38 @@
-# Tâche à réaliser 
+# School Spring Reactor - Workshop 1
 
-Description de la tâche...
+## Part 1
 
-# Tips
+**Goal** : Create & subscribe
 
-- Aide ou lien utile...
+import : _`/steps/01-reactor-basics`_
 
-# TP
+- test classes :
+  - _`Workshop01CreationTest`_
 
-Code ou exemple de code à ajouter pour faire le TP....
+- You must fill missing code in method from classes, to pass unit tests :
+  - _`Workshop01Creation`_
 
-```javascript
-// Evénement à intercepter
-window.addEventListener('beforeinstallprompt', e => {});
+### Bonus
+In addition, some tests are more advanced cases annotated with `@Disabled`.
+Feel free to remove the `@Disabled` annotation on those to try those exercises too.
 
-// Annuler un événement javascript
-e.preventDefault();
 
-// Lancement de l'événement
-deferredEvent.prompt();
+## Part 2
 
-// Attente de la confirmation de l'utilisateur
-deferredEvent.userChoice.then(choiceResult => {
-  // Validation de l'utilisateur
-  choiceResult.outcome; // String = dismissed (si l'utilisateur refuse)
-});
-```
+**Goal** : Use some basics operators to manipulate Publishers
+
+import : _`/steps/01-reactor-basics`_
+
+- test classes :
+  - _`Workshop01FluxTransformTest`_
+  - _`Workshop01FluxFilterTest`_
+  - _`Workshop01FluxCombineTest`_
+
+- You must fill missing code in method from classes, to pass unit tests : 
+  - _`Workshop01FluxTransform`_
+  - _`Workshop01FluxFilter`_
+  - _`Workshop01FluxCombine`_
+
+### Bonus
+In addition, some tests are more advanced cases annotated with `@Disabled`.
+Feel free to remove the `@Disabled` annotation on those to try those exercises too.

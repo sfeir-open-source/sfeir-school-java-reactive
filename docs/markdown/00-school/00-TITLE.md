@@ -1,4 +1,4 @@
-<!-- .slide: class="first-slide" sfeir-level="2" sfeir-techno="xxx" -->
+<!-- .slide: class="first-slide" sfeir-level="1" sfeir-techno="100" -->
 
 # **Welcome to SFEIR School**
 

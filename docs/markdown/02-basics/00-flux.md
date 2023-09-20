@@ -1,5 +1,5 @@
 <!-- .slide: class="transition bg-pink" -->
-# Les séquences de données
+# Publier et souscire
 
 ##==##
 <!-- .slide: -->
