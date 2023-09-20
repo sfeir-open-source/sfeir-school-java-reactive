@@ -7,6 +7,9 @@ import reactor.core.publisher.Flux;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import static com.sfeir.schools.java.reactorerrors.commons.domain.Color.*;
+import static com.sfeir.schools.java.reactorerrors.commons.domain.Shape.*;
+
 public class FigureProvider {
 
   private final AtomicBoolean hasThrown = new AtomicBoolean(false);
@@ -33,4 +36,26 @@ public class FigureProvider {
       sink.complete();
     });
   }
+
+  /**
+   * Provide a Flux of Figure, always the same sequence
+   *
+   * @return [(SQUARE, GREEN),
+   * (CIRCLE, BLUE),
+   * (CIRCLE, RED),
+   * (TRIANGLE, BLUE),
+   * (CIRCLE, RED),
+   * (SQUARE, GREEN)]
+   */
+  public static Flux<Figure> getFiguresConstantFlux() {
+    return Flux.just(
+      new Figure(SQUARE, GREEN),
+      new Figure(CIRCLE, BLUE),
+      new Figure(CIRCLE, RED),
+      new Figure(TRIANGLE, BLUE),
+      new Figure(CIRCLE, RED),
+      new Figure(SQUARE, GREEN)
+    );
+  }
+
 }
