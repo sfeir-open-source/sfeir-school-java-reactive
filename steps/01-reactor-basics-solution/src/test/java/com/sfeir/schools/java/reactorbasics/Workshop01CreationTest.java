@@ -1,20 +1,14 @@
 package com.sfeir.schools.java.reactorbasics;
 
 import com.sfeir.schools.java.reactorbasics.commons.Workshop01Creation;
-import com.sfeir.schools.java.reactorbasics.commons.WorkshopFluxTransformations;
 import com.sfeir.schools.java.reactorbasics.commons.domain.Color;
 import com.sfeir.schools.java.reactorbasics.commons.domain.Shape;
 import com.sfeir.schools.java.reactorbasics.commons.services.ColorProvider;
 import com.sfeir.schools.java.reactorbasics.commons.services.ShapeProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.mockito.junit.jupiter.MockitoExtension;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;

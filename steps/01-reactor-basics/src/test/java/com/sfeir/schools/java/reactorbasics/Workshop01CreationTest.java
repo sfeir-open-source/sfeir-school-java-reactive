@@ -1,7 +1,6 @@
 package com.sfeir.schools.java.reactorbasics;
 
 import com.sfeir.schools.java.reactorbasics.commons.Workshop01Creation;
-import com.sfeir.schools.java.reactorbasics.commons.WorkshopFluxTransformations;
 import com.sfeir.schools.java.reactorbasics.commons.domain.Color;
 import com.sfeir.schools.java.reactorbasics.commons.domain.Shape;
 import com.sfeir.schools.java.reactorbasics.commons.services.ColorProvider;
@@ -17,7 +16,6 @@ import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.sfeir.schools.java.reactorbasics.commons.domain.Shape.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -146,20 +144,4 @@ public class Workshop01CreationTest {
     }
   }
 
-  @Test
-  void test_transform_symbol() {
-    StepVerifier.create(WorkshopFluxTransformations.transformShapeIntoSymbol())
-      .expectNext(CIRCLE.getSymbol(), SQUARE.getSymbol(), SQUARE.getSymbol(), TRIANGLE.getSymbol())
-      .verifyComplete();
-  }
-
-  @Test
-  public void testGetInfiniteRandomShapes() {
-    Flux<Shape> infiniteShapes = shapeProvider.getInfiniteRandomShapes();
-
-    StepVerifier.create(infiniteShapes.take(10))
-      .expectNextCount(10)
-      .expectComplete()
-      .verify();
-  }
 }
