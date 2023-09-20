@@ -2,17 +2,12 @@ package com.sfeir.schools.java.reactorbasics.commons;
 
 import com.sfeir.schools.java.reactorbasics.commons.domain.Shape;
 import com.sfeir.schools.java.reactorbasics.commons.services.ShapeProvider;
-import reactor.core.Disposable;
 import reactor.core.publisher.Flux;
 
-import java.util.ArrayList;
-import java.util.List;
+public class WorkshopFluxTransformations {
 
-public class WorkshopSubscribe {
-
-  public static Disposable subscribeShapeIntoSymbol() {
+  public static Flux<String> transformShapeIntoSymbol() {
     return ShapeProvider.getConstantShapes()
-      .subscribe(shape -> System.out.println(shape.getSymbol()));
+      .map(Shape::getSymbol);
   }
-
 }

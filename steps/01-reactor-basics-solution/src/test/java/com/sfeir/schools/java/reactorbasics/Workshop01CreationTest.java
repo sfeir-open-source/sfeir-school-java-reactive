@@ -1,49 +1,45 @@
 package com.sfeir.schools.java.reactorbasics;
 
-import com.sfeir.schools.java.reactorbasics.commons.WorkshopCreation;
+import com.sfeir.schools.java.reactorbasics.commons.Workshop01Creation;
 import com.sfeir.schools.java.reactorbasics.commons.WorkshopFluxTransformations;
-import com.sfeir.schools.java.reactorbasics.commons.WorkshopSubscribe;
 import com.sfeir.schools.java.reactorbasics.commons.domain.Color;
 import com.sfeir.schools.java.reactorbasics.commons.domain.Shape;
 import com.sfeir.schools.java.reactorbasics.commons.services.ColorProvider;
 import com.sfeir.schools.java.reactorbasics.commons.services.ShapeProvider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.MockitoAnnotations;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static com.sfeir.schools.java.reactorbasics.commons.domain.Shape.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.*;
 
 //TODO to rename or separate more (Subscribes & Creations ? Creation before ? then Manupilations ?)
-public class CreationExercisesTests {
+public class Workshop01CreationTest {
 
   private ColorProvider colorProvider;
   private ShapeProvider shapeProvider;
-  private WorkshopCreation workshopCreation;
+  private Workshop01Creation workshop01Creation;
 
   @BeforeEach
   void setUp() {
     colorProvider = new ColorProvider();
     shapeProvider = new ShapeProvider();
-    workshopCreation = new WorkshopCreation();
-    workshopCreation.colorProvider = colorProvider;
-    workshopCreation.shapeProvider = shapeProvider;
+    workshop01Creation = new Workshop01Creation();
+    workshop01Creation.colorProvider = colorProvider;
+    workshop01Creation.shapeProvider = shapeProvider;
   }
 
   @Test
-  public void testCreateMonoEmpty() {
-    WorkshopCreation workshop = new WorkshopCreation();
+  public void testCreateMonoEmpty_returnEmpty() {
+    Workshop01Creation workshop = new Workshop01Creation();
 
     Mono<Shape> emptyMono = workshop.createMonoEmpty();
 
@@ -53,8 +49,8 @@ public class CreationExercisesTests {
   }
 
   @Test
-  public void testCreateMonoColorWithOneColor() {
-    Mono<Shape> shapeMono = workshopCreation.createMonoShapeWithOneShape();
+  public void testCreateMonoColorWithOneColor_returnFluxWithShape() {
+    Mono<Shape> shapeMono = workshop01Creation.createMonoShapeWithOneShape();
 
     List<Shape> shapeList = shapeProvider.getAllColors();
 
@@ -65,8 +61,8 @@ public class CreationExercisesTests {
   }
 
   @Test
-  public void testCreateFluxEmpty() {
-    Flux<Color> emptyFlux = workshopCreation.createFluxEmpty();
+  public void testCreateFluxEmpty_returnFluxEmpty() {
+    Flux<Color> emptyFlux = workshop01Creation.createFluxEmpty();
 
     StepVerifier.create(emptyFlux)
       .expectComplete()
@@ -74,8 +70,8 @@ public class CreationExercisesTests {
   }
 
   @Test
-  public void testCreateFluxColorsWithThreeColors() {
-    Flux<Color> resultFlux = workshopCreation.createFluxColorsWithThreeColors();
+  public void testCreateFluxColorsWithThreeColors_returnThreeColors() {
+    Flux<Color> resultFlux = workshop01Creation.createFluxColorsWithThreeColors();
 
     List<Color> colorList = colorProvider.getAllColors();
 
@@ -89,11 +85,8 @@ public class CreationExercisesTests {
   }
 
   @Test
-  void testCreateFluxColorsWithList() {
-    //List<Color> mockColors = Arrays.asList(Color.RED, Color.GREEN, Color.BLUE);
-    //when(colorProvider.randomListColor(3)).thenReturn(mockColors);
-
-    Flux<Color> resultFlux = workshopCreation.createFluxColorsWithList();
+  void testCreateFluxColorsWithList_returnFlux() {
+    Flux<Color> resultFlux = workshop01Creation.createFluxColorsWithList();
     List<Color> colorList = colorProvider.getAllColors();
 
     // Création du StepVerifier
@@ -106,8 +99,8 @@ public class CreationExercisesTests {
   }
 
   @Test
-  public void testCreateFluxSequenceInteger() {
-    Flux<Integer> integerFlux = workshopCreation.createFluxSequenceInteger();
+  public void testCreateFluxSequenceInteger_returnFluxSequence() {
+    Flux<Integer> integerFlux = workshop01Creation.createFluxSequenceInteger();
 
     StepVerifier.create(integerFlux)
       .expectNext(6, 7, 8, 9, 10, 11)
@@ -118,10 +111,9 @@ public class CreationExercisesTests {
   @Test
   public void testShapeSubscription() {
     ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    PrintStream originalOut = System.out;
     System.setOut(new PrintStream(outputStream));
 
-    workshopCreation.createAndDisplayFluxWithShapes();
+    workshop01Creation.createAndDisplayFluxWithShapes();
 
     // Convertir la sortie en liste de lignes
     List<String> outputLines = Arrays.asList(outputStream.toString().split("\n"));
@@ -136,9 +128,22 @@ public class CreationExercisesTests {
   }
 
   @Test
-  void test_subscribe_transform_into_symbol() {
-    //to improve ? await for dispable to be done ? require to return list instead but filled from the subscribe(...) ?
-    WorkshopSubscribe.subscribeShapeIntoSymbol();
+  public void testCreateMonoWithDefer_printConsole() {
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(outputStream));
+
+    workshop01Creation.createMonoWithDefer();
+
+    // Convertir la sortie en liste de lignes
+    List<String> outputLines = Arrays.asList(outputStream.toString().split("\n"));
+
+    // Vérifier que 4 formes ont été émises
+    assertEquals(1, outputLines.size());
+
+    // Vérifier que chaque ligne contient le texte "Received shape:"
+    for (String line : outputLines) {
+      assertTrue(line.contains("La forme émise : "));
+    }
   }
 
   @Test
@@ -157,5 +162,4 @@ public class CreationExercisesTests {
       .expectComplete()
       .verify();
   }
-
 }

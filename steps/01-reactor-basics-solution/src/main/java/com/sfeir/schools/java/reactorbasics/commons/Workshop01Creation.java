@@ -9,20 +9,27 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
-public class WorkshopCreation {
+public class Workshop01Creation {
 
   public ColorProvider colorProvider;
   public ShapeProvider shapeProvider;
 
   /**
-   *   Création d'un mono vide
+   * Création d'un mono vide
+   * Corriger le return pour retourner un Mono vide
+   * @return Mono<Shape>
    */
   public Mono<Shape> createMonoEmpty() {
     // Retourner un Mono vide
     return Mono.empty();
   }
 
-  // Création d'un mono à partir d'un élément indépendant
+  /**
+   * Création d'un mono à partir d'un élément indépendant
+   * Création d'une forme générée aléatoirement à partir d'un enum
+   * Retourner un Mono qui contient cette couleur
+   * @return Mono<Shape>
+   */
   public Mono<Shape> createMonoShapeWithOneShape() {
     // Création d'une forme générée aléatoirement à partir d'un enum
     Shape randomShape = shapeProvider.randomShape();
@@ -31,7 +38,10 @@ public class WorkshopCreation {
     return Mono.just(randomShape);
   }
 
-  // Création d'un flux vide
+  /**
+   * Création d'un flux vide
+   * @return Flux<Color>
+   */
   public Flux<Color> createFluxEmpty() {
     // Retourner un Flux vide
     return Flux.empty();
@@ -39,6 +49,8 @@ public class WorkshopCreation {
 
   /**
    * Création d'un flux à partir d'éléments indépendant
+   * Retourner un FLux qui contient ces 3 couleurs
+   * @return Flux<Color>
    */
   public Flux<Color> createFluxColorsWithThreeColors() {
     // Création de plusieurs couleurs générées aléatoirement à partir d'un enum
@@ -52,6 +64,7 @@ public class WorkshopCreation {
 
   /**
    * Création d'un flux à partir d'une liste d'élément
+   * Créer un Flux à partir de cette liste et le retourner
    * @return Flux<Color>
    */
   public Flux<Color> createFluxColorsWithList() {
@@ -61,8 +74,6 @@ public class WorkshopCreation {
     // Créer un Flux à partir de cette liste et le retourner
     return Flux.fromIterable(listColors);
   }
-
-  // TODO : corriger la diapo l'utilisation de range est confuse
 
   /**
    * Création d'un flux émettant une séquence d'entier de 6 à 11
@@ -89,27 +100,23 @@ public class WorkshopCreation {
   }
 
   /**
-   * Méthode pour créer un Mono utilisant Mono.defer()
+   * Créer un Mono utilisant Mono.defer()
+   * Qui émet une randomShape()
+   * Puis souscrivez à ce mono afin d'afficher dans la console "La forme émise : " suivis du label de cette shape
    * @return Mono<Shape>
    */
   public Mono<Shape> createMonoWithDefer() {
     // Utilisation de Mono.defer() pour créer un Mono
-    return Mono.defer(() -> {
+    Mono<Shape> shapeMono = Mono.defer(() -> {
       // À l'intérieur de la lambda, nous générons un Shape aléatoire
       Shape randomShape = new ShapeProvider().randomShape();
 
       // Retourne un Mono contenant le Shape aléatoire
       return Mono.just(randomShape);
     });
-  }
-
-  // TODO : réfléchir à un exo pour le defer
-  public Mono<Shape> callMonoWithDefer() {
-    // Appel de la méthode createMonoWithDefer() pour obtenir le Mono
-    Mono<Shape> shapeMono = createMonoWithDefer();
 
     // Souscription pour observer les émissions du Mono
-    shapeMono.subscribe(shape -> System.out.println("Emitted Shape: " + shape.getLabel()));
+    shapeMono.subscribe(shape -> System.out.println("La forme émise : " + shape.getLabel()));
 
     return shapeMono;
   }
