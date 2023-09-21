@@ -11,4 +11,5 @@ Notes:
 **NATHAN**
 - Exemple : parfait pour un résultat unique de BDD
 - généralement lorsqu'on attend une seule valeur
+- opérateur propre : .then(), thenReturn, .switchIfEmpty
 - Comparaison avec l'optional 

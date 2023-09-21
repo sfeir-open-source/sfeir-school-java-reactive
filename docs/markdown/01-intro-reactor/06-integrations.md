@@ -13,8 +13,7 @@
 
 Notes:
 **NATHAN**
-- Non obligatoire, 
-- BDD: Opérations non-bloquantes et gestion du backpressure.
-- Webflux: Création d'APIs REST réactives et intégration Spring.
-- Reactive Stream: Interopérabilité avec d'autres frameworks conformes.
+- BDD: **Driver Non obligatoire**, Opérations non-bloquantes et gestion du backpressure.
+- Webflux: Framework utilisant reactor Création d'APIs REST réactives et intégration Spring.
+- Reactive Stream: **base pour reactor**, Interopérabilité avec d'autres frameworks conformes.
 - Websocket: Idéal pour les apps en temps réel, optimise latence et ressources.

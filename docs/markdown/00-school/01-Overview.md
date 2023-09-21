@@ -8,11 +8,6 @@ Quand est-ce qu'on mange ?<br>
 Tour de table ...
 </p>
 
-Notes:
-
-**NATHAN**
-
-* Tour de table très rapide : nom, prénom, ce qu'ils attendent
 
 ##==##
 
