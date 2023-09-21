@@ -19,6 +19,7 @@ Mono<Integer> mono = Mono.defer(() -> Mono.just(heavyCalculation()));
 Mono<String> mono = Mono.fromCallable(() -> fetchDataFromExternalService());
 ```
 Notes:
+**NATHAN**
 - Mono.justOrEmpty() à partir d'un optional
 - Mono.fromSupplier() : à partir d'une tache asynchrone
 - Mono.fromFuture() 

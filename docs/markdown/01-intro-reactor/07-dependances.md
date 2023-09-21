@@ -10,6 +10,7 @@
   * Ou alors avec la bibliothèque Caffeine pour des opérations plus complexes
 
 Notes:
+**NATHAN**
 - Reactor Netty: Pour des apps réseau **haute performance**. Supporte **plusieurs protocoles**. Idéal pour gérer **beaucoup d'utilisateurs ou requêtes**.
 - Reactor Test: Outil pour tester la robustesse du code réactif. Permet de **simuler des conditions de backpressure**.
 - Reactor Debug Agent: Améliore le débogage en ajoutant des métadonnées aux flux. Aide à **localiser les erreurs**.

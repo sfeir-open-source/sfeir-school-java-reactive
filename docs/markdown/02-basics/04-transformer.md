@@ -1,6 +1,9 @@
 <!-- .slide: class="transition bg-pink" -->
 # Les opérateurs
 
+Notes:
+**SYLVAIN**
+
 ##==##
 <!-- .slide: -->
 
@@ -12,6 +15,7 @@ Les opérateurs de Reactor permettent de
 - composer une chaine complexe et flexible
 
 Notes:
+**SYLVAIN**
 
 Outre la souscription, les opérateurs existent pour manipuler et transformer les séquences.
 
@@ -47,6 +51,7 @@ Flux<GroupedFlux<Integer, Integer>> groupedByParity = Flux.just(1, 2, 3, 4, 5)
  <!-- .element: class="list-fragment" -->
 
 Notes:
+**SYLVAIN**
 
 * MAP : 
     - permet de transformer chaque élément d'un flux en un autre élément en appliquant une fonction

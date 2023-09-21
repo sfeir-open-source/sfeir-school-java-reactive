@@ -10,6 +10,8 @@ Changement de paradigme
   * _Synchrone_ -> _Asynchrone_
 
 Notes:
+**SYLVAIN**
+
 Reactive -> qui réagit à des événenement ou des changements
 
 Evenement peut être de la données
@@ -31,7 +33,7 @@ Réduction des temps d'attentes
 Parallélisation des tâches automatique
 
 Notes:
-
+**SYLVAIN**
 - on optimise les IOs en les rendant non-bloquants
 - on libère du temps processeur pour effectuer d'autre opérations pendant l'attente
 - gestion automatique de threads
@@ -46,6 +48,7 @@ en exploitant la parallélisation et en réduisant les délais, et est symbolis�
 
 
 ##==##
+**SYLVAIN**
 # Principes d'utilisation
 
 ~_Exécution_~ -> _Souscription_
@@ -56,7 +59,8 @@ Les _`Subscribers`_ opèrent selon les signaux.
 
 ![center-w-800](./assets/images/publisher_subscriber_signal.png)
 
-Notes: 
+Notes:
+**SYLVAIN**
 
 On parle de "souscription" plus que d'éxecution.
 
@@ -78,6 +82,7 @@ Vaste gamme d'opérateurs appliquables à ce flux
 
 
 Notes:
+**SYLVAIN**
 - représentation en séquence
 - émet plusieurs types de signaux
   * _valeur_

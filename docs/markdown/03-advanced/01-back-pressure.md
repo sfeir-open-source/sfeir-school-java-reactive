@@ -16,6 +16,8 @@ un moyen pour le souscripteur:
     - ignorer une partie des messages
 
 Notes:
+**SYLVAIN**
+
 La production de signaux n'est pas nécessairement constante
 (exemple d'une source type topic kafka)
 
@@ -40,6 +42,8 @@ on va choisir comment on mitige la cadence
 
 
 Notes:
+**SYLVAIN**
+
 
 Plusieurs approches pour endiguer la surcharge:
 - déclencher une erreur
@@ -87,6 +91,7 @@ source.getMessages()
 <!-- .element: class="list-fragment" -->
 
 Notes:
+**SYLVAIN**
 
 - onBackpressureError: 
     - une exception est déclenchée 
@@ -132,6 +137,7 @@ topic.read()
 
 
 Notes:
+**SYLVAIN**
 
 Il est possible d'échantillonner soit même avec d'autres opérateurs
 

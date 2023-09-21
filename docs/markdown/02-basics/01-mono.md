@@ -8,6 +8,7 @@
   Utilisation commune : Ils sont utiles lorsque vous attendez un résultat unique d'une opération asynchrone.
 
 Notes:
+**NATHAN**
 - Exemple : parfait pour un résultat unique de BDD
 - généralement lorsqu'on attend une seule valeur
 - Comparaison avec l'optional 

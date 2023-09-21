@@ -9,7 +9,7 @@ Librairie ReactiveX pour .NET en 2011
 Étendu à d'autres langages (RxJava, RxJS, RxCpp, etc)
 
 Notes:
-
+**SYLVAIN**
 
 pattern Observer: 
 utilisé pour des machines à états

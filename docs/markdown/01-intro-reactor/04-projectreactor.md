@@ -1,6 +1,11 @@
 <!-- .slide: class="transition bg-pink" -->
 # Project Reactor
 
+Notes:
+
+**NATHAN**
+
+
 ##==##
 <!-- .slide: -->
 
@@ -16,6 +21,7 @@
 
 
 Notes:
+**NATHAN**
 - basé sur le modèle de **programmation réactive**
 - permet de gérer **plus efficacement les ressources système** dans les applications à haut débit et à faible latence
 - Ces types implémentent les **interfaces Publisher** du Reactive Streams standard.

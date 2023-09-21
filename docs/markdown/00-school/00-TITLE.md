@@ -26,13 +26,3 @@ Credentials
 ![sfeir-icons big](user)<!-- .element: style="--icon-color:var(--light-grey);" --> SSID
 
 ![sfeir-icons big](lock)<!-- .element: style="--icon-color:var(--light-grey);" --> PWD
-
-##==##
-
-# Déroulement de la formation
-
-<p class="center">
-C'est quand la pause ?<br>
-Quand est-ce qu'on mange ?<br>
-Tour de table ...
-</p>

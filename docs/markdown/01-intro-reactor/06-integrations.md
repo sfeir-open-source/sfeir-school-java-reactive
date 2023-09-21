@@ -12,6 +12,7 @@
 * Kafka, RabbitMQ : Les clients réactifs pour ces services de messagerie sont disponibles.
 
 Notes:
+**NATHAN**
 - Non obligatoire, 
 - BDD: Opérations non-bloquantes et gestion du backpressure.
 - Webflux: Création d'APIs REST réactives et intégration Spring.

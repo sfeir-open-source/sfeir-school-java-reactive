@@ -30,6 +30,7 @@ System.out.println(result);
 ```
 
 Notes:
+**NATHAN**
 - doOn : utile débogage et side-effects
 - doOnNext jorunalisation, mersure perf
 - doOnError gestion erreur, alerte

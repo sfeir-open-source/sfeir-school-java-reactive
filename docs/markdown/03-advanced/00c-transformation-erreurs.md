@@ -23,7 +23,9 @@ Flux.just(1, 2, 0)
     .subscribe(System.out::println, System.err::println);
 ```
 
-Notes: 
+Notes:
+**NATHAN**
+
 - Exception personnaliser : améliore débogage et gestion d'erreur 
 - Convertion d'exception bas niveau en exception métier plus significative
 - doOnError : ne résout pas l'erreur mais permet de réagir 

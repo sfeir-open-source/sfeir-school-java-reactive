@@ -27,6 +27,8 @@ Flux.just(1, 2, 0)
 ```
 
 Notes:
+**NATHAN**
+
 - onErrorReturn : maintiens le flux actif, éviter fin abrupte
 - Utile si on ne se soucit pas de la nature de l'erreur
 - onErrorResume : par ex permet d'émettre un autre Flux correctif
