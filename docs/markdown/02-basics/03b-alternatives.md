@@ -1,7 +1,7 @@
 <!-- .slide: class="two-column" -->
 # Consommation
 
-## doOn()
+## doOnNext / doOnError
 * D'autres opérateurs existent pour agir sur les événements du flux sans l'interrompre.
   * doOnNext : lorsqu'un élément est émis.
   * doOnError : lorsqu'une erreur survient.
@@ -32,12 +32,14 @@ System.out.println(result);
 Notes:
 **NATHAN**
 - doOn : utile débogage et side-effects
-- doOnNext jorunalisation, mersure perf
+- doOnNext journalisation, mersure perf
 - doOnError gestion erreur, alerte
 - DoOnComplete libération ressources, signalement tache finis
 - block() antipattern, précaution
 - code legacy, ou avec biblio non reactives
 - trompeur return last value
 - risque de blocage, doit être une exception
+- doOnNext vs lambda : doOnNext avant transformation (map)
+- onErrorContinue
 
 

@@ -13,9 +13,11 @@ Les flux sont potentiellement infinis
 
 Notes:
 **NATHAN**
-
+- bloquant : attend fin opération, contre productif 
+- va a l'encontre du paradigme de prog reactive
 - block:
 rendre immédiate et synchrone le publisher: effets de bords
+- Utile dans tests ou en intéraction avec une lib non reactive 
 
 - l'infinité des flux:
 opération TERMINALE ne verra jamais sa fin -> blocage du système 
