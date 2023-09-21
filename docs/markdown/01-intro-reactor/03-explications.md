@@ -48,7 +48,7 @@ en exploitant la parallélisation et en réduisant les délais, et est symbolis�
 
 
 ##==##
-**SYLVAIN**
+<!-- .slide: -->
 # Principes d'utilisation
 
 ~_Exécution_~ -> _Souscription_
