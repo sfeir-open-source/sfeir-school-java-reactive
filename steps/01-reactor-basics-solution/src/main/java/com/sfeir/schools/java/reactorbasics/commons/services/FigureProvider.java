@@ -33,4 +33,25 @@ public class FigureProvider {
       new Figure(SQUARE, GREEN)
     );
   }
+
+  /**
+   * Provide a Flux of Figure, always the same sequence
+   *
+   * @return [(SQUARE, GREEN),
+   * (CIRCLE, BLUE),
+   * (CIRCLE, RED),
+   * error
+   */
+  public static Flux<Figure> getFiguresConstantFluxWithError() {
+    return Flux.just(new Figure(SQUARE, GREEN),new Figure(CIRCLE, BLUE),new Figure(CIRCLE, RED))
+      .concatWith(Flux.error(new RuntimeException()));
+  }
+
+  public static Flux<Figure> getThreeFiguresConstantFlux() {
+    return Flux.just(
+      new Figure(SQUARE, GREEN),
+      new Figure(CIRCLE, BLUE),
+      new Figure(CIRCLE, RED)
+    );
+  }
 }

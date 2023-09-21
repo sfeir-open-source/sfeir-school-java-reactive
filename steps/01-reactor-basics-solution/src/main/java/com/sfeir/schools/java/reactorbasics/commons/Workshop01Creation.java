@@ -1,6 +1,7 @@
 package com.sfeir.schools.java.reactorbasics.commons;
 
 import com.sfeir.schools.java.reactorbasics.commons.domain.Color;
+import com.sfeir.schools.java.reactorbasics.commons.domain.Figure;
 import com.sfeir.schools.java.reactorbasics.commons.domain.Shape;
 import com.sfeir.schools.java.reactorbasics.commons.services.ColorProvider;
 import com.sfeir.schools.java.reactorbasics.commons.services.ShapeProvider;
@@ -119,5 +120,23 @@ public class Workshop01Creation {
     shapeMono.subscribe(shape -> System.out.println("La forme émise : " + shape.getLabel()));
 
     return shapeMono;
+  }
+
+  /**
+   * Vous avez un Flux passé en paramètre
+   * Souscrivez à ce flux
+   * Puis pour chaque objet émis, affichez "Figure suivante : {shape_symbol} {color_label}"
+   * Puis si une erreur survient : "Une erreur s'est produite : {error}"
+   * Si pas d'erreur et que le Flux est terminé affichez "Flux terminé"
+   * Ne prendre que les 4 premiers éléments émis
+   */
+  public void subscribeFluxWithLambdas(Flux<Figure> figureFlux) {
+
+    figureFlux.subscribe(
+      figure -> System.out.println("Figure suivante : " + figure.shape().getSymbol() + " " + figure.color().getLabel()),          // 1. Consommateur pour les éléments émis
+      error -> System.out.println("Une erreur s'est produite : " + error),            // 2. Consommateur d'erreur
+      () -> System.out.println("Flux terminé"),              // 3. Runnable pour la fin du flux
+      subscription -> subscription.request(4)
+    );
   }
 }
