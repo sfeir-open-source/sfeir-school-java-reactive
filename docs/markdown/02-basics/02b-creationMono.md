@@ -1,23 +1,25 @@
-<!-- .slide: -->
+<!-- .slide: class="" -->
 
 # Création d'un Mono :
 
-* Mono.just() : Crée un Mono avec la valeur fournie en paramètre.
+- _`Mono.just()`_ : Crée un Mono avec la valeur fournie en paramètre.
 ```java[]
 Mono<Integer> mono = Mono.just(42);
 ```
-* Mono.empty() : Crée un Mono vide, ne produisant aucun élément.
+- _`Mono.empty()`_ : Crée un Mono vide, ne produisant aucun élément.
 ```java[]
 Mono<String> mono = Mono.empty();
 ```
-* Mono.defer() : Crée un Mono à partir d'une logique de génération différée. Utile pour des opérations paresseuses.
+- _`Mono.defer()`_ : Crée un Mono à partir d'une logique de génération différée. Utile pour des opérations paresseuses.
 ```java[]
 Mono<Integer> mono = Mono.defer(() -> Mono.just(heavyCalculation()));
 ```
-* Mono.fromCallable() : Crée un Mono à partir d'une méthode Callable, généralement utilisée pour des opérations potentiellement lancées.
+- _`Mono.fromCallable()`_ : Crée un Mono à partir d'une méthode Callable, généralement utilisée pour des opérations potentiellement lancées.
 ```java[]
 Mono<String> mono = Mono.fromCallable(() -> fetchDataFromExternalService());
 ```
+ <!-- .element: class="list-fragment" -->
+
 Notes:
 **NATHAN**
 - Mono.justOrEmpty() à partir d'un optional
