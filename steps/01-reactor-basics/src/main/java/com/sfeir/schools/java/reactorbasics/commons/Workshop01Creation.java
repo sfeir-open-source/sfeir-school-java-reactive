@@ -104,10 +104,10 @@ public class Workshop01Creation {
   /**
    * Vous avez un Flux passé en paramètre
    * Souscrivez à ce flux
-   * Puis pour chaque objet émis, affichez "Figure suivante : {shape_symbol} {color_label}"
+   * Puis pour chaque objet émis, affichez dans la console "Figure suivante : {shape_symbol} {color_label}"
    * Puis si une erreur survient : "Une erreur s'est produite : {error}"
    * Si pas d'erreur et que le Flux est terminé affichez "Flux terminé"
-   * Ne prendre que les 4 premiers éléments émis
+   * Ne prendre que les 4 premiers éléments émis par ce Flux
    */
   public void subscribeFluxWithLambdas(Flux<Figure> figureFlux) {
 

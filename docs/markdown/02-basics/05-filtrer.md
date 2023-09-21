@@ -28,7 +28,7 @@ Mono<Boolean> anyMatches = Flux.just(1, 2, 3, 5, 7)
  <!-- .element: class="list-fragment" -->
 
 Notes:
-
+**SYLVAIN**
 * FILTER : 
 filtrer les éléments d'un flux en fonction d'une condition
 les éléments qui ne satisfont pas la condition sont supprimés du flux

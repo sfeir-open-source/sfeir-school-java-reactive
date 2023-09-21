@@ -26,7 +26,9 @@ Flux.just(1, 2, 0)
 
 ```
 
-Notes: 
+Notes:
+**NATHAN**
+
 - Utile pour les opérations qui peuvent échouer
 - Ex : appels réseau
 - retry() sans arg, réessaie à l'infini attention

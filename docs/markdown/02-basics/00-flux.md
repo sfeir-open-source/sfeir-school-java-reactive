@@ -12,6 +12,7 @@
 * Backpressure : Le flux gère la surcharge en écoutant la capacité de son consommateur.
 
 Notes:
+**NATHAN**
 - Émet 0 à N éléments, peut être vide ou infini
 - Asynchrone et non-bloquant : concept clés 
 - Abonnement améliore performance et réactivité.

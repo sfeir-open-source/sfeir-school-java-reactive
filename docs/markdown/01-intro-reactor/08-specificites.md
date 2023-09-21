@@ -11,6 +11,7 @@
 
 
 Notes:
+**NATHAN**
 - Réactivité optimisée: Meilleure utilisation des ressources et performances accrues, idéal pour les applications à grande échelle.
 - Intégration Spring: Cohérence et facilité d'intégration avec la pile Spring.
 - Types distincts: Deux types principaux (Flux et Mono) pour une API plus claire.

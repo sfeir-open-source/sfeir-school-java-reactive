@@ -4,13 +4,9 @@ import {SfeirThemeInitializer} from '../web_modules/sfeir-school-theme/sfeir-sch
 function schoolSlides() {
   return [
     '00-school/00-TITLE.md',
-    '00-school/01-Overview.md'];
-}
-
-function speakers() {
-  return [
     '00-school/02-speaker-npx.md',
-    '00-school/03-speaker-smr.md'];
+    '00-school/03-speaker-smr.md',
+    '00-school/01-Overview.md'];
 }
 
 function introReactorSlides() {
@@ -65,7 +61,6 @@ function formation() {
   return [
     //
     ...schoolSlides(), //
-    ...speakers(), //
     ...introReactorSlides(), //
     ...basicsSlides(), //
     ...advancedSlides(), //

@@ -29,7 +29,7 @@ Variantes des opérateurs _`zip`_, _`merge`_, _`concat`_, etc
 <!-- .element: class="fragment" -->
 
 Notes:
-
+**SYLVAIN**
 * MERGEWITH : 
     - mélange 2 flux, 
     - les émissions les plus rapides passent en premier,
