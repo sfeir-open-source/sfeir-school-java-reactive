@@ -1,6 +1,7 @@
 package com.sfeir.schools.java.reactorbasics.commons;
 
 import com.sfeir.schools.java.reactorbasics.commons.domain.Color;
+import com.sfeir.schools.java.reactorbasics.commons.domain.Figure;
 import com.sfeir.schools.java.reactorbasics.commons.domain.Shape;
 import com.sfeir.schools.java.reactorbasics.commons.services.ColorProvider;
 import com.sfeir.schools.java.reactorbasics.commons.services.ShapeProvider;
@@ -96,7 +97,19 @@ public class Workshop01Creation {
    * Puis souscrivez à ce mono afin d'afficher dans la console "La forme émise : " suivis du label de cette shape
    * @return Mono<Shape>
    */
-  public void createMonoWithDefer() {
+  public Mono<Shape> createMonoWithDefer() {
+    return Mono.empty();
+  }
+
+  /**
+   * Vous avez un Flux passé en paramètre
+   * Souscrivez à ce flux
+   * Puis pour chaque objet émis, affichez "Figure suivante : {shape_symbol} {color_label}"
+   * Puis si une erreur survient : "Une erreur s'est produite : {error}"
+   * Si pas d'erreur et que le Flux est terminé affichez "Flux terminé"
+   * Ne prendre que les 4 premiers éléments émis
+   */
+  public void subscribeFluxWithLambdas(Flux<Figure> figureFlux) {
 
 
   }
