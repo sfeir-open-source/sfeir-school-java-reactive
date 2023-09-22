@@ -125,19 +125,28 @@ class Workshop01FluxTransformTest {
 
   // grouper Figures par forme
   @Test
-  void testGroupByFigureShape() {
+  void testGroupByFigureColorMapShapeToValue() {
     Flux<GroupedFlux<Color, Shape>> result = Workshop01FluxTransform.groupByFigureColorMapShapeToValue();
 
-    StepVerifier.create(result)
-      .expectNextMatches(
-        group -> group.key() == GREEN
-          && List.of(SQUARE, SQUARE).equals(group.collectList().block()))
-      .expectNextMatches(
-        group -> group.key() == BLUE
-          && List.of(CIRCLE, TRIANGLE).equals(group.collectList().block()))
-      .expectNextMatches(
-        group -> group.key() == RED
-          && List.of(CIRCLE, CIRCLE).equals(group.collectList().block()));
+    List<GroupedFlux<Color, Shape>> collected = result.collectList().block();
+    Assertions.assertNotNull(collected);
+    Assertions.assertTrue(collected.size() > 0, "Collected content should not be empty");
+
+    Mono<List<Shape>> greenCollection = collected.get(0).collectList();
+    Mono<List<Shape>> blueCollection = collected.get(1).collectList();
+    Mono<List<Shape>> redCollection = collected.get(2).collectList();
+
+    StepVerifier.create(greenCollection)
+      .expectNext(List.of(SQUARE, SQUARE))
+      .verifyComplete();
+
+    StepVerifier.create(blueCollection)
+      .expectNext(List.of(CIRCLE, TRIANGLE))
+      .verifyComplete();
+
+    StepVerifier.create(redCollection)
+      .expectNext(List.of(CIRCLE, CIRCLE))
+      .verifyComplete();
   }
 
   /*
