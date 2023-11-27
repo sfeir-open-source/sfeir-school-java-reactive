@@ -81,7 +81,7 @@ public class Workshop02Errors {
    * Appeler la méthode getFiveShapesAfterOneError de shapeProvider
    * Si il y a une erreur tenter de la rappeler après 1 seconde puis après 2 secondes
    * Si elle tombe toujours en erreur lever l'exception "Erreur lors de l'émission du Flux de Shape"
-   * et logger l'erreur "Erreur loggée : " + e.getMessage()
+   * et logger l'erreur "Erreur loggée : Erreur lors de l'émission du Flux de Shape"
    * @return Flux<Shape>
    */
   public Flux<Shape> onErrorRetryThenExceptionAndLog() {
