@@ -22,6 +22,7 @@ Mono<String> mono = Mono.fromCallable(() -> fetchDataFromExternalService());
 
 Notes:
 **NATHAN**
+- defer -> donnée sensible au temps exemple token, retarde la création du mono jusqu'à ce qu'il y ai un abonné 
 - Mono.justOrEmpty() à partir d'un optional
 - Mono.fromSupplier() : à partir d'une tache asynchrone
 - Mono.fromFuture() 

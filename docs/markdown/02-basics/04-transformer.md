@@ -42,13 +42,22 @@ Function<Integer, Flux<Double>> mapper = x -> Flux.just(Math.sqrt(x));
 Flux<Double> doubleFlux = Flux.just(1, 2, 3)
     .flatMap(mapper);
 ```
+ <!-- .element: class="list-fragment" -->
+
+- ![center-w-800](./assets/images/flatMapForFlux.png)
+
+##==##
+<!-- .slide: class="" -->
+
+# Opérateurs de transformation
 
 - _`groupBy`_ : regrouper les éléments d'un flux en fonction d'un critère de regroupement
 ```java[]
 Flux<GroupedFlux<Integer, Integer>> groupedByParity = Flux.just(1, 2, 3, 4, 5)
     .groupBy(number -> number % 2);
 ```
- <!-- .element: class="list-fragment" -->
+![center-w-800](./assets/images/groupByWithKeyMapper.svg)
+
 
 Notes:
 **SYLVAIN**

@@ -7,6 +7,14 @@
 Flux<Integer> evenNumbers = Flux.just(1, 2, 3, 4, 5, 6, 7, 8)
     .filter(number -> number % 2 == 0);
 ```
+- ![center-w-800](./assets/images/filterForFlux.svg)
+<!-- .element: class="list-fragment" -->
+
+##==##
+<!-- .slide: class="" -->
+
+# Opérateurs filtrant
+
 
 - _`distinct`_ : élimine les doublons
 ```java[]

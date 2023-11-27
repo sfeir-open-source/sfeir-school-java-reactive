@@ -33,6 +33,8 @@ mono.subscribe(
 
 ```
 
+![center-w-1000](./assets/images/subscribeForFlux.svg)
+
 Notes:
 **NATHAN**
 - Avant souscription, Flux est froid càd inactif
