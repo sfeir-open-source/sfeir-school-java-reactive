@@ -11,6 +11,9 @@
 * Pipeline d'opérateurs : Nombreuses opérations et manipulations disponibles (map, filter, flatMap).
 * Backpressure : Le flux gère la surcharge en écoutant la capacité de son consommateur.
 
+
+![center-w-1000](./assets/images/flux.svg)
+
 Notes:
 **NATHAN**
 - Émet 0 à N éléments, peut être vide ou infini

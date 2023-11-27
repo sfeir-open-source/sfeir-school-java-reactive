@@ -16,9 +16,16 @@ flux
     .doOnComplete(() -> System.out.println("Flux terminé"))
     .subscribe();
 ```
+
 ##--##
 # <br>
-## block()
+![center-w-800](./assets/images/doOnNextForFlux.svg)
+
+
+
+##==##
+<!-- .slide: -->
+# block()
 * Utilisé pour synchroniquement bloquer le flux ou mono
 * Renvoie la dernière valeur émise
 * /!\ à utiliser avec attention car déconseillé dans une architecture réactive
@@ -28,6 +35,7 @@ Mono<String> mono = Mono.just("Hello, World!");
 String result = mono.block();
 System.out.println(result);
 ```
+![center-w-8000](./assets/images/block.svg)
 
 Notes:
 **NATHAN**

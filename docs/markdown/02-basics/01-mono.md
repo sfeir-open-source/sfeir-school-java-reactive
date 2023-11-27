@@ -7,9 +7,12 @@
 * Pipeline d'opérateurs : Des opérations communes avec le Flux.
   Utilisation commune : Ils sont utiles lorsque vous attendez un résultat unique d'une opération asynchrone.
 
+![center-w-1000](./assets/images/mono.svg)
+
 Notes:
 **NATHAN**
 - Exemple : parfait pour un résultat unique de BDD
 - généralement lorsqu'on attend une seule valeur
 - opérateur propre : .then(), thenReturn, .switchIfEmpty
 - Comparaison avec l'optional 
+

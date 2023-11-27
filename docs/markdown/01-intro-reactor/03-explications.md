@@ -9,6 +9,7 @@ Repose sur une émission de données à partir d'une ou plusieurs sources
 Changement de paradigme
   * _Synchrone_ -> _Asynchrone_
 
+
 Notes:
 **SYLVAIN**
 
@@ -31,6 +32,7 @@ Meilleurs utilisations des ressources
 Réduction des temps d'attentes
 
 Parallélisation des tâches automatique
+![center-w-800](./assets/images/synchrones_asynchrones.png)
 
 Notes:
 **SYLVAIN**
